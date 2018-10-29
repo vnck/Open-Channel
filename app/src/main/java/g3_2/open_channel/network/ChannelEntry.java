@@ -20,10 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A product entry in the list of products.
+ * A channel entry in the list of channels.
  */
-public class ProductEntry {
-    private static final String TAG = ProductEntry.class.getSimpleName();
+public class ChannelEntry {
+    private static final String TAG = ChannelEntry.class.getSimpleName();
 
     public final String title;
     public final Uri dynamicUrl;
@@ -31,7 +31,7 @@ public class ProductEntry {
     public final String price;
     public final String description;
 
-    public ProductEntry(
+    public ChannelEntry(
             String title, String dynamicUrl, String url, String price, String description) {
         this.title = title;
         this.dynamicUrl = Uri.parse(dynamicUrl);
@@ -41,10 +41,10 @@ public class ProductEntry {
     }
 
     /**
-     * Loads a raw JSON at R.raw.products and converts it into a list of ProductEntry objects
+     * Loads a raw JSON at R.raw.channels and converts it into a list of ChannelEntry objects
      */
-    public static List<ProductEntry> initProductEntryList(Resources resources) {
-        InputStream inputStream = resources.openRawResource(R.raw.products);
+    public static List<ChannelEntry> initChannelEntryList(Resources resources) {
+        InputStream inputStream = resources.openRawResource(R.raw.channels);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {
@@ -62,10 +62,10 @@ public class ProductEntry {
                 Log.e(TAG, "Error closing the input stream.", exception);
             }
         }
-        String jsonProductsString = writer.toString();
+        String jsonChannelsString = writer.toString();
         Gson gson = new Gson();
-        Type productListType = new TypeToken<ArrayList<ProductEntry>>() {
+        Type channelListType = new TypeToken<ArrayList<ChannelEntry>>() {
         }.getType();
-        return gson.fromJson(jsonProductsString, productListType);
+        return gson.fromJson(jsonChannelsString, channelListType);
     }
 }

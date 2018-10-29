@@ -7,8 +7,8 @@
     <string name="oc_error_password">Password must contain at least 8 characters.</string>
     <string name="oc_filter_title">Filter</string>
     <string name="oc_search_title">Search</string>
-    <string name="oc_product_title">Title</string>
-    <string name="oc_product_description">Secondary text</string>
+    <string name="oc_channel_title">Title</string>
+    <string name="oc_channel_description">Secondary text</string>
 
     <!-- oc backdrop menu labels -->
     <string name="oc_featured_label">Featured</string>

@@ -39,7 +39,7 @@ public class LoginFragment extends Fragment {
                     passwordTextInput.setError(getString(R.string.oc_error_password));
                 } else {
                     passwordTextInput.setError(null); // clear error
-                    ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), false); // Navigate to the next Fragment
+                    ((NavigationHost) getActivity()).navigateTo(new ChannelGridFragment(), false); // Navigate to the next Fragment
                 }
             }
         });

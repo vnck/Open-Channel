@@ -13,9 +13,9 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import g3_2.open_channel.network.ProductEntry;
+import g3_2.open_channel.network.ChannelEntry;
 
-public class ProductGridFragment extends Fragment {
+public class ChannelGridFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -28,19 +28,19 @@ public class ProductGridFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.oc_product_grid_fragment, container, false);
+        View view = inflater.inflate(R.layout.oc_channel_grid_fragment, container, false);
 
         setUpToolbar(view);
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, GridLayoutManager.VERTICAL, false));
-        ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
-                ProductEntry.initProductEntryList(getResources()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
+        ChannelCardRecyclerViewAdapter adapter = new ChannelCardRecyclerViewAdapter(
+                ChannelEntry.initChannelEntryList(getResources()));
         recyclerView.setAdapter(adapter);
-        int largePadding = getResources().getDimensionPixelSize(R.dimen.oc_product_grid_spacing);
-        int smallPadding = getResources().getDimensionPixelSize(R.dimen.oc_staggered_product_grid_spacing_small);
-        recyclerView.addItemDecoration(new ProductGridItemDecoration(largePadding, smallPadding));
+        int largePadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing);
+        int smallPadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing_small);
+        recyclerView.addItemDecoration(new ChannelGridItemDecoration(largePadding, smallPadding));
 
         return view;
     }

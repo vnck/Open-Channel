@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="textColorPrimary">#111111</color>
     <color name="colorPrimary">#D32F2F</color>
     <color name="colorPrimaryDark">#9A0007</color>
     <color name="colorAccent">#D32F2F</color>
-    <color name="toolbarIconColor">#FFFFFF</color>
+    <color name="toolbarIconColor">@color/textColorPrimary</color>
     <color name="navbarColor">#FF6659</color>
     <color name="loginPageBackgroundColor">#FFFFFF</color>
-    <color name="productGridBackgroundColor">#FFF9F4</color>
+    <color name="channelGridBackgroundColor">#FFF9F4</color>
     <color name="channelCardBackgroundColor">#E0E0E0</color>
     <color name="channelCardForegroundColor">#FFFFFF</color>
+    <color name="colorControlActivated">#D32F2F</color>
 </resources>
