@@ -12,7 +12,7 @@ Group Members:
 
 ## NOTE!
 
-After you've pulled code and made modifications to the code, push it **AS A BRANCH** (name it after your sub-group or spmething). Only Merge to Prototype branch (to be created) after subject to code review. We will merge to MASTER only for the final product. 
+After you've pulled code and made modifications to the code, push it **AS A BRANCH** (name it after your sub-group or spmething). Only Merge to Prototype branch after subject to code review. We will merge to MASTER only for the final product. 
 
 ## COMMENTS
 - We will be using Google Material and Android Jetpack for app development.
