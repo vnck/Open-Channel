@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 
 import g3_2.open_channel.network.ChannelEntry;
 
-public class ChannelGridFragment extends Fragment {
+public class MyChannelGridFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -30,7 +30,7 @@ public class ChannelGridFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.oc_channel_grid_fragment, container, false);
+        View view = inflater.inflate(R.layout.oc_my_channel_fragment, container, false);
 
         setUpToolbar(view);
 

@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/home"
+        android:icon="@drawable/oc_home"
+        android:title="@string/oc_home_title"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/myChannels"
-        android:icon="@drawable/oc_search"
+        android:icon="@drawable/oc_mychannels"
         android:title="@string/oc_my_channels_title"
         app:showAsAction="always" />
     <item
-        android:id="@+id/channels"
-        android:icon="@drawable/oc_search"
-        android:title="@string/oc_channels_title"
+        android:id="@+id/allChannels"
+        android:icon="@drawable/oc_allchannels"
+        android:title="@string/oc_all_channels_title"
         app:showAsAction="always" />
     <item
-        android:id="@+id/profile"
-        android:icon="@drawable/oc_search"
-        android:title="@string/oc_profile_title"
+        android:id="@+id/account"
+        android:icon="@drawable/oc_account"
+        android:title="@string/oc_account_title"
         app:showAsAction="always" />
 </menu>
