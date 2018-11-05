@@ -9,7 +9,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/app_bar"
             style="@style/Widget.OpenChannel.Toolbar"
@@ -35,5 +35,16 @@
             android:layout_height="match_parent" />
 
     </android.support.v4.widget.NestedScrollView>
-    
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomnav"
+        style="@style/Widget.OpenChannel.BottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemHorizontalTranslationEnabled="false"
+        app:itemIconTint="@drawable/oc_bottom_nav_colors"
+        app:itemTextColor="@drawable/oc_bottom_nav_colors"
+        app:menu="@menu/oc_bottomnavbar_menu" />
+
 </FrameLayout>

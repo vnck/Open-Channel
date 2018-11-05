@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChannelGridFragment">
 
-</LinearLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/app_bar"
+            style="@style/Widget.OpenChannel.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/oc_app_name"
+            app:navigationIcon="@drawable/oc_menu" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:background="@color/channelGridBackgroundColor"
+        android:paddingStart="@dimen/oc_channel_grid_spacing"
+        android:paddingEnd="@dimen/oc_channel_grid_spacing"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.BottomNavigationView
+        style="@style/Widget.OpenChannel.BottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemHorizontalTranslationEnabled="false"
+        app:itemIconTint="@drawable/oc_bottom_nav_colors"
+        app:itemTextColor="@drawable/oc_bottom_nav_colors"
+        app:menu="@menu/oc_bottomnavbar_menu" />
+
+</FrameLayout>

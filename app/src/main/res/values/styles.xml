@@ -47,4 +47,8 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
+    <style name="Widget.OpenChannel.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">@color/bottomNavBarBackgroundColor</item>
+    </style>
+
 </resources>

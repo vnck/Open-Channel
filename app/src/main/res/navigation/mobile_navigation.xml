@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mobile_navigation">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/channelGridFragment">
 
+    <fragment
+        android:id="@+id/channelGridFragment"
+        android:name="g3_2.open_channel.ChannelGridFragment"
+        android:label="oc_channel_grid_fragment"
+        tools:layout="@layout/oc_channel_grid_fragment" />
 </navigation>

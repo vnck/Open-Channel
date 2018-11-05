@@ -2,6 +2,7 @@ package g3_2.open_channel;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -42,6 +44,9 @@ public class ChannelGridFragment extends Fragment {
         int smallPadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing_small);
         recyclerView.addItemDecoration(new ChannelGridItemDecoration(largePadding, smallPadding));
 
+        BottomNavigationView navigation = (BottomNavigationView) view.findViewById(R.id.bottomnav);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
         return view;
     }
 
@@ -58,6 +63,26 @@ public class ChannelGridFragment extends Fragment {
         menuInflater.inflate(R.menu.oc_toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.myChannels:
+                    ((NavigationHost) getActivity()).navigateTo(new ChannelGridFragment(), false);
+                    return true;
+                case R.id.channels:
+                    ((NavigationHost) getActivity()).navigateTo(new ProfileFragment(), false);
+                    return true;
+                case R.id.profile:
+                    ((NavigationHost) getActivity()).navigateTo(new LoginFragment(), false);
+                    return true;
+            }
+            return false;
+        }
+    };
 
 
 }

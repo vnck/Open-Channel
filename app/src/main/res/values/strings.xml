@@ -19,4 +19,9 @@
     <string name="oc_bottoms_label">Bottoms</string>
     <string name="oc_dresses_label">Dresses</string>
     <string name="oc_account_label">My Account</string>
+
+    <!-- oc bottom nav labels -->
+    <string name="oc_profile_title">User</string>
+    <string name="oc_my_channels_title">My Channels</string>
+    <string name="oc_channels_title">Channels</string>
 </resources>
