@@ -74,7 +74,7 @@ public class ChannelGridFragment extends Fragment {
                     ((NavigationHost) getActivity()).navigateTo(new HomeFragment(), false);
                     return true;
                 case R.id.myChannels:
-                    ((NavigationHost) getActivity()).navigateTo(new MyChannelGridFragment(), false);
+                    ((NavigationHost) getActivity()).navigateTo(new MyChannelFragment(), false);
                     return true;
                 case R.id.allChannels:
                     ((NavigationHost) getActivity()).navigateTo(new ChannelGridFragment(), false);
