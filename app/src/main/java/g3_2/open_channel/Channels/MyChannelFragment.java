@@ -40,8 +40,8 @@ public class MyChannelFragment extends ChannelGridFragment {
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-//        BottomNavigationView navigation = view.findViewById(R.id.bottomnav);
-//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        BottomNavigationView navigation = view.findViewById(R.id.bottomnav);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         return view;
     }
 

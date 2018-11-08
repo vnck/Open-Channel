@@ -4,15 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Channels.MyChannelFragment"
+    tools:context=".ChannelGridFragment"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/app_bar"
+            style="@style/Widget.OpenChannel.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/oc_menu"
+            app:title="Open CHannel" />
+
+    </android.support.design.widget.AppBarLayout>
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:contentDescription="@string/tampines_hub"
         android:scaleType="centerCrop"
         android:src="@mipmap/th_background" />
@@ -47,5 +59,17 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:background="@android:color/white" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomnav"
+        style="@style/Widget.OpenChannel.BottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemHorizontalTranslationEnabled="false"
+        app:itemIconTint="@drawable/oc_bottom_nav_colors"
+        app:itemTextColor="@drawable/oc_bottom_nav_colors"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/oc_bottomnavbar_menu" />
 
 </LinearLayout>
