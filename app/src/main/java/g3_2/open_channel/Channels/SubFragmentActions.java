@@ -19,7 +19,7 @@ import g3_2.open_channel.R;
 public class SubFragmentActions extends Fragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup                  container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.oc_login_fragment, container, false);
 
         return rootView;

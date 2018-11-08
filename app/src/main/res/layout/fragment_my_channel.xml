@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Channels.MyChannelFragment">
+    tools:context=".Channels.MyChannelFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/app_bar"
+            style="@style/Widget.OpenChannel.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/oc_menu"
+            app:title="@string/oc_app_name" />
+
+    </android.support.design.widget.AppBarLayout>
 
     <ImageView
         android:id="@+id/imageView2"
@@ -19,7 +34,7 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <android.support.design.widget.TabItem
             android:id="@+id/Description"
@@ -43,7 +58,19 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/white" />
 
-</FrameLayout>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomnav"
+        style="@style/Widget.OpenChannel.BottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemHorizontalTranslationEnabled="false"
+        app:itemIconTint="@drawable/oc_bottom_nav_colors"
+        app:itemTextColor="@drawable/oc_bottom_nav_colors"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/oc_bottomnavbar_menu" />
+
+</LinearLayout>
