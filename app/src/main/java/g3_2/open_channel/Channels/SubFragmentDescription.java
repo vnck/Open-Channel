@@ -23,7 +23,7 @@ public class SubFragmentDescription extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup                  container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.category_list, container, false);
+        View rootView = inflater.inflate(R.layout.oc_login_fragment, container, false);
 
         return rootView;
     }

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import g3_2.open_channel.Channels.MyChannelFragment;
 import g3_2.open_channel.network.ChannelEntry;
 
 public class ChannelGridFragment extends Fragment {
