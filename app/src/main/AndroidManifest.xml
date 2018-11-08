@@ -7,9 +7,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/oc_logo"
         android:label="@string/oc_app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/oc_logo"
         android:supportsRtl="true"
         android:name="g3_2.open_channel.application.OpenChannelApplication"
         android:theme="@style/Theme.OpenChannel">
