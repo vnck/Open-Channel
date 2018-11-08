@@ -51,7 +51,7 @@ public class ChannelGridFragment extends Fragment {
         return view;
     }
 
-    private void setUpToolbar(View view) {
+    protected void setUpToolbar(View view) {
         Toolbar toolbar = view.findViewById(R.id.app_bar);
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         if (activity != null){
@@ -65,7 +65,7 @@ public class ChannelGridFragment extends Fragment {
         super.onCreateOptionsMenu(menu, menuInflater);
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    protected BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
