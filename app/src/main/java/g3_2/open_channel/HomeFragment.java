@@ -17,13 +17,7 @@ import android.view.ViewGroup;
 
 import g3_2.open_channel.network.ChannelEntry;
 
-public class HomeFragment extends Fragment {
-
-    @Override
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
-    }
+public class HomeFragment extends ChannelGridFragment {
 
     @Override
     public View onCreateView(
@@ -49,43 +43,5 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
-
-    private void setUpToolbar(View view) {
-        Toolbar toolbar = view.findViewById(R.id.app_bar);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null){
-            activity.setSupportActionBar(toolbar);
-        }
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
-        menuInflater.inflate(R.menu.oc_toolbar_menu, menu);
-        super.onCreateOptionsMenu(menu, menuInflater);
-    }
-
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.home:
-                    ((NavigationHost) getActivity()).navigateTo(new HomeFragment(), false);
-                    return true;
-                case R.id.myChannels:
-                    ((NavigationHost) getActivity()).navigateTo(new MyChannelGridFragment(), false);
-                    return true;
-                case R.id.allChannels:
-                    ((NavigationHost) getActivity()).navigateTo(new ChannelGridFragment(), false);
-                    return true;
-                case R.id.account:
-                    ((NavigationHost) getActivity()).navigateTo(new ProfileFragment(), false);
-                    return true;
-            }
-            return false;
-        }
-    };
-
 
 }

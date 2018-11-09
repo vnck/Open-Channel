@@ -32,4 +32,5 @@
     <string name="documents">Documents</string>
     <string name="actions">Actions</string>
     <string name="tampines_hub">tampines_hub</string>
+    <string name="short_description_about_project">Short Description about Project</string>
 </resources>

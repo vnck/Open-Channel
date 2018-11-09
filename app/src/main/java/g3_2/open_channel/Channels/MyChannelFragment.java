@@ -45,5 +45,4 @@ public class MyChannelFragment extends ChannelGridFragment {
         return view;
     }
 
-
 }

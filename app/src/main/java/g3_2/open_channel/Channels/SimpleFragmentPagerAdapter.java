@@ -17,9 +17,9 @@ import g3_2.open_channel.R;
  * A simple {@link Fragment} subclass.
  */
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
-
+    private String tabTitles[] = new String[] { "Tab1", "Tab2", "Tab3" };
     private Context mContext;
-
+    private int tabCount = tabTitles.length;
     public SimpleFragmentPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
@@ -40,7 +40,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     // This determines the number of tabs
     @Override
     public int getCount() {
-        return 3;
+        return tabCount;
     }
 
     // This determines the title for each tab

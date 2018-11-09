@@ -17,7 +17,7 @@ import g3_2.open_channel.R;
  * create an instance of this fragment.
  */
 public class SubFragmentActions extends Fragment {
-
+//ToDo implement Action fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.subfragment_actions, container, false);
