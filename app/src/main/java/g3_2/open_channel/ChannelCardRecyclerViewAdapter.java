@@ -19,7 +19,7 @@ public class ChannelCardRecyclerViewAdapter extends RecyclerView.Adapter<Channel
     private List<ChannelEntry> channelList;
     private ImageRequester imageRequester;
 
-    ChannelCardRecyclerViewAdapter(List<ChannelEntry> channelList) {
+    public ChannelCardRecyclerViewAdapter(List<ChannelEntry> channelList) {
         this.channelList = channelList;
         imageRequester = ImageRequester.getInstance();
     }
