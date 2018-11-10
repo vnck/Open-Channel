@@ -56,9 +56,6 @@ public class ChannelBaseFragment extends Fragment {
         return view;
     }
 
-    public void setUpTemplate(){
-
-    }
     protected void setUpToolbar(View view) {
         Toolbar toolbar = view.findViewById(R.id.app_bar);
         AppCompatActivity activity = (AppCompatActivity) getActivity();

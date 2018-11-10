@@ -10,6 +10,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import g3_2.open_channel.R;
 
@@ -29,6 +31,9 @@ public class MyChannelFragment extends ChannelBaseFragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_channel, container, false);
 
+        ImageButton imageButton = view.findViewById(R.id.org_image);
+        imageButton.setImageResource(R.drawable.oc_logo);
+
         // Find the view pager that will allow the user to swipe between fragments
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         // Create an adapter that knows which fragment should be shown on each page
@@ -41,28 +46,7 @@ public class MyChannelFragment extends ChannelBaseFragment {
 
         BottomNavigationView navigation = view.findViewById(R.id.bottomnav);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-//        return templateView(inflater, container, savedInstanceState, new String[] {"tab1"});
         return view;
     }
-
-//    public View templateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState,String[] tabtiles){
-//        // Inflate the layout for this fragment
-//        View view = inflater.inflate(R.layout.fragment_my_channel, container, false);
-//
-//        // Find the view pager that will allow the user to swipe between fragments
-//        ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
-//        // Create an adapter that knows which fragment should be shown on each page
-//        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(this.getActivity(), getChildFragmentManager());
-//        // Set the adapter onto the view pager
-//        viewPager.setAdapter(adapter);
-//        // Give the TabLayout the ViewPager
-//        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.sliding_tabs);
-//        tabLayout.setupWithViewPager(viewPager);
-//
-//        BottomNavigationView navigation = view.findViewById(R.id.bottomnav);
-//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-//        return view;
-//    }
 
 }

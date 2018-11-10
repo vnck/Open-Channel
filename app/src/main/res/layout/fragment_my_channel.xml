@@ -22,11 +22,11 @@
     </android.support.design.widget.AppBarLayout>
 
     <ImageButton
+        android:id="@+id/org_image"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:contentDescription="@string/tampines_hub"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/th_background" />
+        android:scaleType="centerCrop" />
 
     <TextView
         android:layout_width="match_parent"
