@@ -1,16 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".HomeFragment">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home"
-        android:textColor="@color/primaryWhite"
-        android:textSize="36dp"
-        android:background="#55FF52"/>
+        android:layout_height="wrap_content"
+        android:text="@string/new_documents"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        android:layout_margin="8dp"/>
 
-</FrameLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:background="@color/channelGridBackgroundColor"
+        android:paddingStart="@dimen/oc_channel_grid_spacing"
+        android:paddingEnd="@dimen/oc_channel_grid_spacing"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/note_doc_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <include layout="@layout/item_divider"></include>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_actions"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
+        android:layout_margin="8dp"/>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:background="@color/channelGridBackgroundColor"
+        android:paddingStart="@dimen/oc_channel_grid_spacing"
+        android:paddingEnd="@dimen/oc_channel_grid_spacing"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/note_act_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <include layout="@layout/item_divider"></include>
+
+
+</LinearLayout>

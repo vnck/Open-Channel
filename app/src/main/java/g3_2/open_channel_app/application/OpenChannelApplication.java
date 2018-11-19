@@ -4,11 +4,11 @@ import android.app.Application;
 import android.content.Context;
 import android.support.v7.app.AppCompatDelegate;
 
-public class ShrineApplication extends Application {
-    private static ShrineApplication instance;
+public class OpenChannelApplication extends Application {
+    private static OpenChannelApplication instance;
     private static Context appContext;
 
-    public static ShrineApplication getInstance() {
+    public static OpenChannelApplication getInstance() {
         return instance;
     }
 

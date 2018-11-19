@@ -4,7 +4,6 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
 
-import g3_2.open_channel_app.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -18,6 +17,8 @@ import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import g3_2.open_channel_app.R;
 
 /**
  * A product entry in the list of products.
@@ -44,7 +45,7 @@ public class ChannelEntry {
      * Loads a raw JSON at R.raw.products and converts it into a list of ProductEntry objects
      */
     public static List<ChannelEntry> initProductEntryList(Resources resources) {
-        InputStream inputStream = resources.openRawResource(R.raw.products);
+        InputStream inputStream = resources.openRawResource(R.raw.channels);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {
@@ -64,7 +65,7 @@ public class ChannelEntry {
         }
         String jsonProductsString = writer.toString();
         Gson gson = new Gson();
-        Type productListType = new TypeToken<ArrayList<ProductEntry>>() {
+        Type productListType = new TypeToken<ArrayList<ChannelEntry>>() {
         }.getType();
         return gson.fromJson(jsonProductsString, productListType);
     }

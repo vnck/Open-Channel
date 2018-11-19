@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".ProfileFragment">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
 
     <ImageView
         android:layout_width="96dp"
@@ -239,6 +237,61 @@
 
     </RelativeLayout>
 
-    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:padding="@dimen/fragment_horizontal_margin">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/ContactItem3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+            android:layout_marginRight="@dimen/fragment_horizontal_margin"
+            android:src="@drawable/oc_contact"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/ContactItemAddress1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+            android:layout_marginStart="@dimen/fragment_horizontal_margin"
+            android:layout_toEndOf="@id/ContactItem3"
+            android:layout_toRightOf="@id/ContactItem3"
+            android:text="Evergreen 31 #30-01"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/primaryBlack" />
+
+        <TextView
+            android:id="@+id/ContactItemAddress2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ContactItemAddress1"
+            android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+            android:layout_marginStart="@dimen/fragment_horizontal_margin"
+            android:layout_toEndOf="@id/ContactItem3"
+            android:layout_toRightOf="@id/ContactItem3"
+            android:text="Singapore 355021"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/primaryBlack" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ContactItemAddress2"
+            android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+            android:layout_marginStart="@dimen/fragment_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/ContactItem3"
+            android:layout_toRightOf="@id/ContactItem3"
+            android:text="Home Address"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="#727272" />
+
+    </RelativeLayout>
+
+</LinearLayout>

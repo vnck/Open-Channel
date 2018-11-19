@@ -1,6 +1,7 @@
 package g3_2.open_channel_app;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -10,9 +11,11 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import g3_2.open_channel_app.network.NotificationEntry;
+import g3_2.open_channel_app.notification.CardNotificationAdaptor;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -101,4 +104,15 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+//    @Override
+//    public void onChildAdded(DataSnapShot snapshot, String previousChildKey){
+//        String title = snapshot.child("title").getValue();
+//        String channel = snapshot.child("channel").getValue();
+//        String date = snapshot.child("date").getValue();
+//        String url = snapshot.child("url").getValue();
+//
+//        NotificationEntry notification = new NotificationEntry(title, channel, date, url);
+//        CardNotificationAdaptor.add(notification);
+//    }
 }

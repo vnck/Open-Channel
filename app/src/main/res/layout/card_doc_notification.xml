@@ -13,52 +13,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.android.volley.toolbox.NetworkImageView
-            android:id="@+id/channelImage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/oc_channel_card_image_height"
-            android:background="?attr/colorPrimaryDark"
-            android:scaleType="centerCrop" />
-
-
         <TextView
             android:id="@+id/title"
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_alignBottom="@id/channelImage"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark"
-            android:text="@string/title_placeholder" />
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:text="@string/title_placeholder"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
         <TextView
-            android:id="@+id/organisation"
+            android:id="@+id/channel"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/channelImage"
-            android:textColor="?android:textColorSecondary"
-            android:padding="8dp"
-            android:text="@string/organisation_placeholder" />
+            android:layout_below="@id/title"
+            android:paddingTop="8dp"
+            android:paddingLeft="16dp"
+            android:text="@string/channel_description_placeholder"
+            android:textColor="?android:textColorSecondary"/>
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/date"
             style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/organisation"
-            android:padding="8dp"
-            android:text="@string/channel_description_placeholder" />
+            android:layout_below="@id/channel"
+            android:text="@string/date_placeholder"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:textColor="?android:textColorSecondary"/>
 
-        <android.support.design.button.MaterialButton
-            android:id="@+id/subscribe_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/description"
+        <ImageButton
+            android:id="@+id/icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="8dp"
-            android:layout_marginRight="8dp"
-            android:text="@string/oc_subscribe_button"/>
+            android:layout_centerVertical="true"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/oc_file"
+            android:backgroundTint="@color/colorPrimary" />
 
     </RelativeLayout>
 

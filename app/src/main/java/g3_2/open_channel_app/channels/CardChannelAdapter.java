@@ -12,11 +12,11 @@ import g3_2.open_channel_app.R;
 import g3_2.open_channel_app.network.ChannelEntry;
 import g3_2.open_channel_app.network.ImageRequester;
 
-public class CardAdaptorChannel  extends RecyclerView.Adapter<CardChannelViewHolder>  {
+public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHolder>  {
     private List<ChannelEntry> productList;
     private ImageRequester imageRequester;
 
-    public CardAdaptorChannel(List<ChannelEntry> productList) {
+    public CardChannelAdapter(List<ChannelEntry> productList) {
         this.productList = productList;
         imageRequester = ImageRequester.getInstance();
     }

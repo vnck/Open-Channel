@@ -1,4 +1,4 @@
-package g3_2.open_channel_app.card;
+package g3_2.open_channel_app.channels;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
