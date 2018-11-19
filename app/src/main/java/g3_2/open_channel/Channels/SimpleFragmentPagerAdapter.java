@@ -39,10 +39,8 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
             return new SubFragmentDescription();
         } else if (position == 1){
             return new SubFragmentDocuments();
-        } else if (position == 2){
-            return new SubFragmentActions();
         } else {
-            return new SubFragmentAdmin();
+            return new SubFragmentActions();
         }
     }
 

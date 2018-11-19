@@ -87,5 +87,11 @@
                 android:layout_toLeftOf="@id/next_button"
                 android:text="@string/oc_button_cancel"/>
         </RelativeLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:text="@string/access_chatbot" />
     </LinearLayout>
 </ScrollView>

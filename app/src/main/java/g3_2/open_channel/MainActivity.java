@@ -1,5 +1,6 @@
 package g3_2.open_channel;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -41,4 +42,5 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
 
         transaction.commit();
     }
+
 }
