@@ -29,63 +29,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="132dp"
-            android:text="@string/oc_app_name"
+            android:layout_marginBottom="100dp"
+            android:text="@string/documents"
             android:textAppearance="@style/TextAppearance.OpenChannel.Title" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="13dp"
+            android:text="proposal"
+            android:textAppearance="@style/TextAppearance.OpenChannel.Title"
+            android:textSize="20dp" />
+
         <!-- Snippet from "Add text fields" section goes here. -->
-        <android.support.design.widget.TextInputLayout
-            style="@style/Widget.OpenChannel.TextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/oc_hint_username">
 
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/password_text_input"
-            style="@style/Widget.OpenChannel.TextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/oc_hint_password"
-            app:errorEnabled="true"
-            app:passwordToggleEnabled="true">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/password_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-        </android.support.design.widget.TextInputLayout>
 
         <!-- Snippet from "Add buttons" section goes here. -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            
+
             <android.support.design.button.MaterialButton
-                android:id="@+id/next_button"
+                android:id="@+id/buttonDownloadDoc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:text="@string/oc_button_next"/>
-            
-            <android.support.design.button.MaterialButton
-                android:id="@+id/cancel_button"
-                style="@style/Widget.OpenChannel.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_toStartOf="@id/next_button"
-                android:layout_toLeftOf="@id/next_button"
-                android:text="@string/oc_button_cancel"/>
+                android:layout_centerInParent="true"
+                android:text="@string/channel_download_button"/>
+
+
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>
