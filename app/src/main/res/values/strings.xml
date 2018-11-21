@@ -9,6 +9,7 @@
     <string name="oc_search_title">Search</string>
     <string name="oc_channel_title">Title</string>
     <string name="oc_channel_description">Secondary text</string>
+    <string name="channel_download_button">Download</string>
 
     <!-- oc backdrop menu labels -->
     <string name="oc_featured_label">Featured</string>
