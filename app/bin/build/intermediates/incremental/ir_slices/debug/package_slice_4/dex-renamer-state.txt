@@ -1,0 +1,4 @@
+#Mon Nov 12 15:34:22 SGT 2018
+base.0=/Users/user/Github_Depository/Open-Channel/app/build/intermediates/transforms/dexMerger/debug/4
+path.0=classes.dex
+renamed.0=classes.dex
