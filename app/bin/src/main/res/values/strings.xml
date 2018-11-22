@@ -1,0 +1,35 @@
+<resources>
+    <string name="oc_app_name">Open Channel</string>
+    <string name="oc_hint_username">Username</string>
+    <string name="oc_hint_password">Password</string>
+    <string name="oc_button_next">Next</string>
+    <string name="oc_button_cancel">Cancel</string>
+    <string name="oc_error_password">Password must contain at least 8 characters.</string>
+    <string name="oc_filter_title">Filter</string>
+    <string name="oc_search_title">Search</string>
+    <string name="oc_channel_title">Title</string>
+    <string name="oc_channel_description">Secondary text</string>
+
+    <!-- oc backdrop menu labels -->
+    <string name="oc_featured_label">Featured</string>
+    <string name="oc_apartment_label">Apartment</string>
+    <string name="oc_accessories_label">Accessories</string>
+    <string name="oc_shoes_label">Shoes</string>
+    <string name="oc_tops_label">Tops</string>
+    <string name="oc_bottoms_label">Bottoms</string>
+    <string name="oc_dresses_label">Dresses</string>
+    <string name="oc_account_label">My Account</string>
+
+    <!-- oc bottom nav labels -->
+    <string name="oc_account_title">Account</string>
+    <string name="oc_my_channels_title">My Channels</string>
+    <string name="oc_all_channels_title">All Channels</string>
+    <string name="oc_home_title">Home</string>
+    <string name="title_placeholder">Channel Title</string>
+    <string name="organisation_placeholder">Organisation Name</string>
+    <string name="channel_description_placeholder">channel description</string>
+    <string name="oc_subscribe_button">Follow</string>
+    <string name="date_placeholder">xx/xx/xxxx</string>
+    <string name="new_documents">New Documents</string>
+    <string name="new_actions">New Actions</string>
+</resources>

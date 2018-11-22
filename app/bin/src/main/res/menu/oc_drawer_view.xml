@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_account"
+            android:icon="@drawable/oc_account"
+            android:title="@string/oc_account_title" />
+        <item
+            android:id="@+id/drawer_logoff"
+            android:icon="@drawable/oc_filter"
+            android:title="Log Out" />
+    </group>
+</menu>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryWhite">#FFFFFF</color>
+    <color name="primaryBlack">#111111</color>
+    <color name="textColorPrimary">@color/primaryBlack</color>
+    <color name="colorPrimary">#D32F2F</color>
+    <color name="colorPrimaryDark">#9A0007</color>
+    <color name="colorAccent">#D32F2F</color>
+    <color name="toolbarIconColor">@color/textColorPrimary</color>
+    <color name="bottomNavBarBackgroundColor">#FF6659</color>
+    <color name="loginPageBackgroundColor">@color/primaryWhite</color>
+    <color name="channelGridBackgroundColor">#FFF9F4</color>
+    <color name="channelCardBackgroundColor">#E0E0E0</color>
+    <color name="channelCardForegroundColor">@color/primaryWhite</color>
+    <color name="colorControlActivated">#D32F2F</color>
+</resources>
