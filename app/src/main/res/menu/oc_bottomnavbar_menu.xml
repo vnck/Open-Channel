@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/oc_home"
+        android:title="@string/oc_home_title"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/myChannels"
+        android:icon="@drawable/oc_mychannels"
+        android:title="@string/oc_my_channels_title"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/allChannels"
+        android:icon="@drawable/oc_allchannels"
+        android:title="@string/oc_all_channels_title"
+        app:showAsAction="always" />
+</menu>
