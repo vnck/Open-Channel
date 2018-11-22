@@ -7,20 +7,20 @@
     tools:context=".AllChannelFragment">
 
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
-        android:background="@color/channelGridBackgroundColor"
-        android:paddingStart="@dimen/oc_channel_grid_spacing"
-        android:paddingEnd="@dimen/oc_channel_grid_spacing"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/all_channel_recycler_view"
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:background="@color/channelGridBackgroundColor"
+            android:paddingStart="@dimen/oc_channel_grid_spacing"
+            android:paddingEnd="@dimen/oc_channel_grid_spacing"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    </android.support.v4.widget.NestedScrollView>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/all_channel_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </android.support.v4.widget.NestedScrollView>
 
 </FrameLayout>

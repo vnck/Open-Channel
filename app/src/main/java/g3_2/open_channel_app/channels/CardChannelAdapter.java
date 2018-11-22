@@ -42,10 +42,11 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Snackbar.make(v, "Channel Feature Coming Soon", Snackbar.LENGTH_LONG)
-                            .setAction("Channel", null).show();
+                    Snackbar.make(v, "Subscription Feature Coming Soon", Snackbar.LENGTH_LONG)
+                            .setAction("Subscription", null).show();
                 }
             });
+            holder.currentItem = productList.get(position);
         }
     }
 
