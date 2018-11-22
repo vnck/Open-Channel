@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="oc_channel_grid_spacing">16dp</dimen>
-    <dimen name="oc_channel_grid_spacing_small">8dp</dimen>
+    <dimen name="oc_channel_grid_spacing">8dp</dimen>
+    <dimen name="oc_channel_grid_spacing_small">4dp</dimen>
     <dimen name="oc_channel_card_image_height">120dp</dimen>
 
     <dimen name="oc_channel_grid_reveal_height">240dp</dimen>
@@ -18,4 +18,6 @@
     <dimen name="oc_staggered_channel_grid_card_height_portrait">247dp</dimen>
     <dimen name="oc_staggered_channel_grid_card_width_landscape">188dp</dimen>
     <dimen name="oc_staggered_channel_grid_card_height_landscape">140dp</dimen>
+    <dimen name="oc_notification_grid_spacing">8dp</dimen>
+    <dimen name="oc_notification_grid_spacing_small">4dp</dimen>
 </resources>

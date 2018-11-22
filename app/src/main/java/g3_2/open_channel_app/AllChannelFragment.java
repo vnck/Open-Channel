@@ -31,11 +31,11 @@ public class AllChannelFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_all_channel, container, false);
 
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.all_channel_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
         CardChannelAdapter adapter = new CardChannelAdapter(
-                ChannelEntry.initProductEntryList(getResources()));
+                ChannelEntry.initProductEntryList(getResources(),R.raw.channels));
         recyclerView.setAdapter(adapter);
         int largePadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing);
         int smallPadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing_small);

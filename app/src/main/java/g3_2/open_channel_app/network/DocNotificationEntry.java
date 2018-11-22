@@ -23,8 +23,8 @@ import g3_2.open_channel_app.R;
 /**
  * A product entry in the list of products.
  */
-public class NotificationEntry {
-    private static final String TAG = NotificationEntry.class.getSimpleName();
+public class DocNotificationEntry {
+    private static final String TAG = DocNotificationEntry.class.getSimpleName();
 
     public final String title;
     public final Uri dynamicUrl;
@@ -32,7 +32,7 @@ public class NotificationEntry {
     public final String channel;
     public final String date;
 
-    public NotificationEntry(
+    public DocNotificationEntry(
             String title, String dynamicUrl, String url, String channel, String date) {
         this.title = title;
         this.dynamicUrl = Uri.parse(dynamicUrl);
@@ -44,7 +44,7 @@ public class NotificationEntry {
     /**
      * Loads a raw JSON at R.raw.products and converts it into a list of ProductEntry objects
      */
-    public static List<NotificationEntry> initProductEntryList(Resources resources) {
+    public static List<DocNotificationEntry> initProductEntryList(Resources resources) {
         InputStream inputStream = resources.openRawResource(R.raw.notification_docs);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
@@ -65,7 +65,7 @@ public class NotificationEntry {
         }
         String jsonProductsString = writer.toString();
         Gson gson = new Gson();
-        Type productListType = new TypeToken<ArrayList<NotificationEntry>>() {
+        Type productListType = new TypeToken<ArrayList<DocNotificationEntry>>() {
         }.getType();
         return gson.fromJson(jsonProductsString, productListType);
     }

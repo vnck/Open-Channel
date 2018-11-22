@@ -49,6 +49,34 @@
             android:textColor="?android:textColorSecondary"
             android:textSize="10sp" />
 
+        <TextView
+            android:id="@+id/dash"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/channel"
+            android:layout_toRightOf="@id/date"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="until"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/due"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/channel"
+            android:layout_toRightOf="@id/dash"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="@string/date_placeholder"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="10sp" />
+
         <ImageButton
             android:id="@+id/downloadDocButton"
             android:layout_width="48dp"
@@ -56,7 +84,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="24dp"
-            android:background="@drawable/oc_file"
+            android:background="@drawable/oc_action"
             android:backgroundTint="@color/colorPrimary" />
 
     </RelativeLayout>

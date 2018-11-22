@@ -1,10 +1,12 @@
 package g3_2.open_channel_app.channels;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -15,6 +17,7 @@ import g3_2.open_channel_app.network.ImageRequester;
 public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHolder>  {
     private List<ChannelEntry> productList;
     private ImageRequester imageRequester;
+    Button button;
 
     public CardChannelAdapter(List<ChannelEntry> productList) {
         this.productList = productList;
@@ -36,6 +39,13 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
             holder.channelOrganisation.setText(channel.organisation);
             holder.channelDescription.setText(channel.description);
             imageRequester.setImageFromUrl(holder.channelImage, channel.url);
+            holder.button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(v, "Channel Feature Coming Soon", Snackbar.LENGTH_LONG)
+                            .setAction("Channel", null).show();
+                }
+            });
         }
     }
 
@@ -43,21 +53,5 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
     public int getItemCount() {
         return productList.size();
     }
-
-//        /**
-//         * Handle click to show DetailActivity.
-//         *
-//         * @param view View that is clicked.
-//         */
-//    @Override
-//    public void onClick(View view) {
-//        CardChannel currentSport = mSportsData.get(getAdapterPosition());
-//        Intent detailIntent = new Intent(mContext, DetailActivity.class);
-//        detailIntent.putExtra("title", currentSport.getTitle());
-//        detailIntent.putExtra("image_resource",
-//                currentSport.getImageResource());
-//        mContext.startActivity(detailIntent);
-//    }
-
 
 }

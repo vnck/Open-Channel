@@ -1,14 +1,16 @@
 [
   {
-    "title": "Proposal PDF 1",
+    "title": "Survey 1",
     "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/0-0.jpg",
     "channel": "Channel Name",
-    "date": "03/01/2018"
+    "date": "03/01/2018",
+    "due": "31/07/2018"
   },
   {
-    "title": "Proposal PDF 2",
+    "title": "Survey 2",
     "url": "https://storage.googleapis.com/material-vignettes.appspot.com/image/0-0.jpg",
     "channel": "Channel Name",
-    "date": "03/01/2018"
+    "date": "06/05/2018",
+    "due": "31/11/2018"
   }
 ]

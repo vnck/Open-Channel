@@ -19,7 +19,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="4dp"
         android:background="@color/channelGridBackgroundColor"
         android:paddingStart="@dimen/oc_channel_grid_spacing"
         android:paddingEnd="@dimen/oc_channel_grid_spacing"
@@ -44,7 +44,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="4dp"
         android:background="@color/channelGridBackgroundColor"
         android:paddingStart="@dimen/oc_channel_grid_spacing"
         android:paddingEnd="@dimen/oc_channel_grid_spacing"
@@ -56,8 +56,6 @@
             android:layout_height="match_parent" />
 
     </android.support.v4.widget.NestedScrollView>
-
-    <include layout="@layout/item_divider"></include>
 
 
 </LinearLayout>

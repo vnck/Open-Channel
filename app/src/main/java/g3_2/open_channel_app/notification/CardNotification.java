@@ -5,17 +5,21 @@ public class CardNotification {
     private String channel;
     private String date;
     private String url;
+    private String due;
 
-    public CardNotification(String title, String channel, String date, String url) {
+    public CardNotification(String title, String channel, String date, String url, String due) {
         this.title = title;
         this.channel = channel;
         this.date = date;
+        this.due = due;
         this.url =url;
     }
 
     public String getDate() {
         return date;
     }
+
+    public String getDue() { return due; }
 
     public String getChannel() {
         return channel;

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -13,9 +15,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-
-import g3_2.open_channel_app.network.NotificationEntry;
-import g3_2.open_channel_app.notification.CardNotificationAdaptor;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,9 +52,12 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                                 break;
                         }
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.fragmentContainer, selectedFragment);
-                        transaction.commit();
+                        if (selectedFragment != null) {
+                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                            transaction.replace(R.id.fragmentContainer, selectedFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
 
                         // Add code here to update the UI based on the item selected
                         // For example, swap UI fragments here
@@ -62,6 +65,15 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Chatbot Feature Coming Soon", Snackbar.LENGTH_LONG)
+                        .setAction("Chat", null).show();
+            }
+        });
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottomnav);
@@ -84,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                         transaction.replace(R.id.fragmentContainer, selectedFragment);
+                        transaction.addToBackStack(null);
                         transaction.commit();
                         return true;
                     }
@@ -112,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 //        String date = snapshot.child("date").getValue();
 //        String url = snapshot.child("url").getValue();
 //
-//        NotificationEntry notification = new NotificationEntry(title, channel, date, url);
-//        CardNotificationAdaptor.add(notification);
+//        DocNotificationEntry notification = new DocNotificationEntry(title, channel, date, url);
+//        CardDocNotificationAdaptor.add(notification);
 //    }
 }

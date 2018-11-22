@@ -8,14 +8,14 @@ import android.widget.TextView;
 
 import g3_2.open_channel_app.R;
 
-public class CardNotificationViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
+public class CardDocNotificationViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
 
     public TextView notificationTitle;
     public TextView notificationChannel;
     public TextView notificationDate;
     public ImageButton downloadButton;
 
-    public CardNotificationViewHolder(@NonNull View itemView) {
+    public CardDocNotificationViewHolder(@NonNull View itemView) {
         super(itemView);
 
         downloadButton = (ImageButton) itemView.findViewById(R.id.downloadDocButton);

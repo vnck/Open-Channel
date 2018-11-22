@@ -1,39 +1,40 @@
 package g3_2.open_channel_app.notification;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.util.List;
 
 import g3_2.open_channel_app.R;
-import g3_2.open_channel_app.network.NotificationEntry;
+import g3_2.open_channel_app.network.ActionNotificationEntry;
 
-public class CardNotificationAdaptor extends RecyclerView.Adapter<CardNotificationViewHolder>  {
-    private List<NotificationEntry> list;
+public class CardActionNotificationAdaptor extends RecyclerView.Adapter<CardActionNotificationViewHolder>  {
+    private List<ActionNotificationEntry> list;
 
-    public CardNotificationAdaptor(List<NotificationEntry> list) {
+    public CardActionNotificationAdaptor(List<ActionNotificationEntry> list) {
         this.list = list;
     }
 
     @NonNull
     @Override
-    public CardNotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_doc_notification, parent, false);
-        return new CardNotificationViewHolder(layoutView);
+    public CardActionNotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_action_notification, parent, false);
+        return new CardActionNotificationViewHolder(layoutView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CardNotificationViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CardActionNotificationViewHolder holder, int position) {
         if (list != null && position < list.size()) {
-            NotificationEntry notification = list.get(position);
+            ActionNotificationEntry notification = list.get(position);
             holder.notificationTitle.setText(notification.title);
             holder.notificationChannel.setText(notification.channel);
             holder.notificationDate.setText(notification.date);
+            holder.notificationDue.setText(notification.due);
 
             setOnClick(holder.downloadButton, notification.url);
         }
@@ -44,7 +45,8 @@ public class CardNotificationAdaptor extends RecyclerView.Adapter<CardNotificati
             @Override
             public void onClick(View v) {
                 // TODO: download function
-                Toast.makeText(v.getContext(), url, Toast.LENGTH_LONG).show();
+                Snackbar.make(v, "Action Feature Coming Soon", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
     }

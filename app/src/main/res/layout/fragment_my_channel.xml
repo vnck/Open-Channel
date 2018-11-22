@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MyChannelFragment">
 
-    <TextView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="My Channel"
-        android:textColor="@color/primaryWhite"
-        android:textSize="36dp"
-        android:background="#5530FF"/>
+        android:layout_marginTop="16dp"
+        android:background="@color/channelGridBackgroundColor"
+        android:paddingStart="@dimen/oc_channel_grid_spacing"
+        android:paddingEnd="@dimen/oc_channel_grid_spacing"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/my_channel_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </android.support.v4.widget.NestedScrollView>
 
 </FrameLayout>
