@@ -22,7 +22,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="48dp"
             android:layout_marginBottom="16dp"
-            android:tint="?android:attr/textColorPrimary"
             app:srcCompat="@drawable/oc_logo" />
 
         <TextView
@@ -31,6 +30,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="132dp"
             android:text="@string/oc_app_name"
+            android:textColor="@color/colorPrimary"
             android:textAppearance="@style/TextAppearance.OpenChannel.Title" />
 
         <!-- Snippet from "Add text fields" section goes here. -->
