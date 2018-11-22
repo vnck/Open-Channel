@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -32,7 +34,19 @@ public class CardNotificationAdaptor extends RecyclerView.Adapter<CardNotificati
             holder.notificationTitle.setText(notification.title);
             holder.notificationChannel.setText(notification.channel);
             holder.notificationDate.setText(notification.date);
+
+            setOnClick(holder.downloadButton, notification.url);
         }
+    }
+
+    private void setOnClick(final ImageButton btn, final String url){
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: download function
+                Toast.makeText(v.getContext(), url, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -40,20 +54,7 @@ public class CardNotificationAdaptor extends RecyclerView.Adapter<CardNotificati
         return list.size();
     }
 
-//        /**
-//         * Handle click to show DetailActivity.
-//         *
-//         * @param view View that is clicked.
-//         */
-//    @Override
-//    public void onClick(View view) {
-//        CardChannel currentSport = mSportsData.get(getAdapterPosition());
-//        Intent detailIntent = new Intent(mContext, DetailActivity.class);
-//        detailIntent.putExtra("title", currentSport.getTitle());
-//        detailIntent.putExtra("image_resource",
-//                currentSport.getImageResource());
-//        mContext.startActivity(detailIntent);
-//    }
+
 
 
 }
