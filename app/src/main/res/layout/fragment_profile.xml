@@ -30,11 +30,11 @@
                 android:id="@+id/material_unelevated_button"
                 style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="96dp"
-                android:layout_height= "40dp"
+                android:layout_height= "38dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="100dp"
                 android:background="#FFF9F4"
-                android:text="EDITTT" />
+                android:text="EDIT" />
 
 
         </RelativeLayout>
@@ -77,6 +77,50 @@
                 android:layout_toEndOf="@id/ProfileItem1"
                 android:layout_toRightOf="@id/ProfileItem1"
                 android:text="John"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#727272" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:padding="@dimen/fragment_horizontal_margin">
+
+            <ImageView
+                android:id="@+id/ProfileItem1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+                android:layout_marginRight="@dimen/fragment_horizontal_margin"
+                android:src="@drawable/oc_user"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/ProfileItemLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_horizontal_margin"
+                android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+                android:layout_toEndOf="@id/ProfileItem1_2"
+                android:layout_toRightOf="@id/ProfileItem1_2"
+                android:text="Last Name"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/primaryBlack" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ProfileItemLastName"
+                android:layout_marginStart="@dimen/fragment_horizontal_margin"
+                android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/ProfileItem1_2"
+                android:layout_toRightOf="@id/ProfileItem1_2"
+                android:text="Lee"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -223,6 +267,50 @@
             android:padding="@dimen/fragment_horizontal_margin">
 
             <ImageView
+                android:id="@+id/ContactItem1_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+                android:layout_marginRight="@dimen/fragment_horizontal_margin"
+                android:src="@drawable/oc_contact"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/ContactItemHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/fragment_horizontal_margin"
+                android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+                android:layout_toEndOf="@id/ContactItem1_2"
+                android:layout_toRightOf="@id/ContactItem1_2"
+                android:text="Home Number"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/primaryBlack" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ContactItemHome"
+                android:layout_marginStart="@dimen/fragment_horizontal_margin"
+                android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/ContactItem1_2"
+                android:layout_toRightOf="@id/ContactItem1_2"
+                android:text="+65 6123 4567"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#727272" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:padding="@dimen/fragment_horizontal_margin">
+
+            <ImageView
                 android:id="@+id/ContactItem2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -259,6 +347,8 @@
 
         </RelativeLayout>
 
+        <include layout="@layout/item_divider" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -277,7 +367,7 @@
                 android:visibility="invisible" />
 
             <TextView
-                android:id="@+id/ContactItemAddress1"
+                android:id="@+id/ContactItemAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fragment_horizontal_margin"
@@ -289,46 +379,64 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
-                android:id="@+id/ContactItemAddress2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ContactItemAddress1"
-                android:layout_marginStart="@dimen/fragment_horizontal_margin"
-                android:layout_marginLeft="@dimen/fragment_horizontal_margin"
-                android:layout_toEndOf="@id/ContactItem3"
-                android:layout_toRightOf="@id/ContactItem3"
-                android:text="8 Sompah Road"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/primaryBlack" />
-
-            <TextView
-                android:id="@+id/PostalCode1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/PostalCode2"
+                android:layout_below="@id/ContactItemAddress"
                 android:layout_marginStart="@dimen/fragment_horizontal_margin"
                 android:layout_marginLeft="@dimen/fragment_horizontal_margin"
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ContactItem3"
                 android:layout_toRightOf="@id/ContactItem3"
-                android:text="Postal Code"
+                android:text="8 Sompah Road"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
-            <TextView
-                android:id="@+id/PostalCode2"
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:padding="@dimen/fragment_horizontal_margin">
+
+            <ImageView
+                android:id="@+id/ContactItem4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/ContactItemAddress1"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+                android:layout_marginRight="@dimen/fragment_horizontal_margin"
+                android:src="@drawable/oc_contact"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/ContactItemPostalCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fragment_horizontal_margin"
                 android:layout_marginLeft="@dimen/fragment_horizontal_margin"
-                android:layout_toEndOf="@id/ContactItem3"
-                android:layout_toRightOf="@id/ContactItem3"
-                android:text="512345"
+                android:layout_toEndOf="@id/ContactItem4"
+                android:layout_toRightOf="@id/ContactItem4"
+                android:text="Postal Code"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/primaryBlack" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ContactItemPostalCode"
+                android:layout_marginStart="@dimen/fragment_horizontal_margin"
+                android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/ContactItem4"
+                android:layout_toRightOf="@id/ContactItem4"
+                android:text="512345"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#727272" />
+
         </RelativeLayout>
+
     </LinearLayout>
 
 </ScrollView>
