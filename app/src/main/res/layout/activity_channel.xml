@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
+        <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -32,7 +32,21 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bottomnav"
+            style="@style/Widget.OpenChannel.BottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:itemHorizontalTranslationEnabled="false"
+            app:itemIconTint="@drawable/oc_bottom_nav_colors"
+            app:itemTextColor="@drawable/oc_bottom_nav_colors"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/oc_bottomnavbar_menu" />
     </RelativeLayout>
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
