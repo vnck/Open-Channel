@@ -17,6 +17,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import g3_2.open_channel_app.channels.ChannelActivity;
+import g3_2.open_channel_app.channels.ChannelFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
@@ -88,17 +91,20 @@ public class MainActivity extends AppCompatActivity {
                                 selectedFragment = HomeFragment.newInstance();
                                 break;
                             case R.id.myChannels:
-                                selectedFragment = MyChannelFragment.newInstance();
+                                startActivity(new Intent(MainActivity.this, ChannelActivity.class));
                                 break;
                             case R.id.allChannels:
                                 selectedFragment = AllChannelFragment.newInstance();
                                 break;
                         }
-                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.fragmentContainer, selectedFragment);
-                        transaction.addToBackStack(null);
-                        transaction.commit();
-                        return true;
+                        if (selectedFragment != null) {
+                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                            transaction.replace(R.id.fragmentContainer, selectedFragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                            return true;
+
                     }
                 });
 
