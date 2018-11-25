@@ -19,6 +19,7 @@ import android.view.View;
 
 import g3_2.open_channel_app.channels.ChannelActivity;
 import g3_2.open_channel_app.channels.ChannelFragment;
+import g3_2.open_channel_app.chatbot.MainChatbotActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Chatbot Feature Coming Soon", Snackbar.LENGTH_LONG)
-                        .setAction("Chat", null).show();
+                startActivity(new Intent(MainActivity.this, MainChatbotActivity.class));
+
             }
         });
 

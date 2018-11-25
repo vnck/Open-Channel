@@ -33,6 +33,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="g3_2.open_channel_app.MainActivity" />
         </activity>
+        <activity
+            android:name=".chatbot.MainChatbotActivity"
+            android:label="Chatbot"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="g3_2.open_channel_app.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
