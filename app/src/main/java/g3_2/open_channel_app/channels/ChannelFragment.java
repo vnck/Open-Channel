@@ -1,5 +1,6 @@
 package g3_2.open_channel_app.channels;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -42,6 +43,8 @@ public class ChannelFragment extends Fragment {
         viewPager.setAdapter(adapter);
         // Give the TabLayout the ViewPager
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.sliding_tabs);
+        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF0000"));
+        tabLayout.setTabTextColors(Color.parseColor("#727272"), Color.parseColor("#ffffff"));
         tabLayout.setupWithViewPager(viewPager);
 
         return view;
