@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -17,13 +16,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-import g3_2.open_channel_app.channels.ChannelActivity;
-import g3_2.open_channel_app.channels.ChannelFragment;
 import g3_2.open_channel_app.chatbot.MainChatbotActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.oc_menu);
+        bottomNavigationView = (BottomNavigationView)
+                findViewById(R.id.bottomnav);
 
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
                         switch (menuItem.getItemId()) {
                             case R.id.drawer_account:
                                 selectedFragment = ProfileFragment.newInstance();
+                                bottomNavigationView.getMenu().findItem(R.id.home).setChecked(false);
+                                bottomNavigationView.getMenu().findItem(R.id.myChannels).setChecked(false);
+                                bottomNavigationView.getMenu().findItem(R.id.allChannels).setChecked(false);
                                 break;
                             case R.id.drawer_logoff:
                                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -75,12 +78,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, MainChatbotActivity.class));
+                bottomNavigationView.getMenu().findItem(R.id.home).setChecked(false);
+                bottomNavigationView.getMenu().findItem(R.id.myChannels).setChecked(false);
+                bottomNavigationView.getMenu().findItem(R.id.allChannels).setChecked(false);
 
             }
         });
-
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
-                findViewById(R.id.bottomnav);
 
         bottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -92,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                 selectedFragment = HomeFragment.newInstance();
                                 break;
                             case R.id.myChannels:
-                                startActivity(new Intent(MainActivity.this, ChannelActivity.class));
+                                selectedFragment = MyChannelFragment.newInstance();
                                 break;
                             case R.id.allChannels:
                                 selectedFragment = AllChannelFragment.newInstance();

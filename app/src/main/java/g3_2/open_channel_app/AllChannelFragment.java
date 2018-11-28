@@ -35,7 +35,7 @@ public class AllChannelFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
         CardChannelAdapter adapter = new CardChannelAdapter(
-                ChannelEntry.initProductEntryList(getResources(),R.raw.channels));
+                ChannelEntry.initProductEntryList(getResources(),R.raw.channels), AllChannelFragment.this);
         recyclerView.setAdapter(adapter);
         int largePadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing);
         int smallPadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing_small);

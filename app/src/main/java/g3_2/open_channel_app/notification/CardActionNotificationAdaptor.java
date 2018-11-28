@@ -2,6 +2,7 @@ package g3_2.open_channel_app.notification;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,16 +16,18 @@ import g3_2.open_channel_app.network.ActionNotificationEntry;
 
 public class CardActionNotificationAdaptor extends RecyclerView.Adapter<CardActionNotificationViewHolder>  {
     private List<ActionNotificationEntry> list;
+    private Fragment fragment;
 
-    public CardActionNotificationAdaptor(List<ActionNotificationEntry> list) {
+    public CardActionNotificationAdaptor(List<ActionNotificationEntry> list, Fragment fragment) {
         this.list = list;
+        this.fragment = fragment;
     }
 
     @NonNull
     @Override
     public CardActionNotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_action_notification, parent, false);
-        return new CardActionNotificationViewHolder(layoutView);
+        return new CardActionNotificationViewHolder(layoutView, fragment);
     }
 
     @Override

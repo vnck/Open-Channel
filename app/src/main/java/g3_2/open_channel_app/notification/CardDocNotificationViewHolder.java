@@ -1,12 +1,15 @@
 package g3_2.open_channel_app.notification;
 
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import g3_2.open_channel_app.R;
+import g3_2.open_channel_app.channels.ChannelFragment;
 
 public class CardDocNotificationViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
 
@@ -14,8 +17,9 @@ public class CardDocNotificationViewHolder extends RecyclerView.ViewHolder  impl
     public TextView notificationChannel;
     public TextView notificationDate;
     public ImageButton downloadButton;
+    private Fragment frag;
 
-    public CardDocNotificationViewHolder(@NonNull View itemView) {
+    public CardDocNotificationViewHolder(@NonNull View itemView, Fragment fragment) {
         super(itemView);
 
         downloadButton = (ImageButton) itemView.findViewById(R.id.downloadDocButton);
@@ -23,6 +27,18 @@ public class CardDocNotificationViewHolder extends RecyclerView.ViewHolder  impl
         notificationTitle = itemView.findViewById(R.id.title);
         notificationChannel = itemView.findViewById(R.id.channel);
         notificationDate = itemView.findViewById(R.id.date);
+        frag = fragment;
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Fragment selectedFragment = ChannelFragment.newInstance();
+                if (selectedFragment != null) {
+                    FragmentTransaction transaction = frag.getActivity().getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.fragmentContainer, selectedFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+            }
+        });
     }
 
     @Override

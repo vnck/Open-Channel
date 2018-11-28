@@ -2,7 +2,6 @@ package g3_2.open_channel_app.channels;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -13,14 +12,6 @@ import android.widget.ImageButton;
 
 import g3_2.open_channel_app.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link MyChannelFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link MyChannelFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ChannelFragment extends Fragment {
     public static ChannelFragment newInstance() {
         return new ChannelFragment();

@@ -7,85 +7,52 @@
     android:background="@color/loginPageBackgroundColor"
     tools:context=".LoginFragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:paddingTop="16dp">
+        android:layout_height="match_parent">
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="16dp"
-            app:srcCompat="@drawable/oc_logo" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:cropToPadding="false"
+            android:scaleType="fitStart"
+            android:src="@raw/bg" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="132dp"
-            android:text="@string/oc_app_name"
-            android:textColor="@color/colorPrimary"
-            android:textAppearance="@style/TextAppearance.OpenChannel.Title" />
-
-        <!-- Snippet from "Add text fields" section goes here. -->
-        <android.support.design.widget.TextInputLayout
-            style="@style/Widget.OpenChannel.TextInputLayout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/oc_hint_username">
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:paddingTop="16dp">
 
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:maxLines="1" />
-        </android.support.design.widget.TextInputLayout>
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="16dp"
+                app:srcCompat="@drawable/oc_logo" />
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/password_text_input"
-            style="@style/Widget.OpenChannel.TextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/oc_hint_password"
-            app:errorEnabled="true"
-            app:passwordToggleEnabled="true">
-
-            <android.support.design.widget.TextInputEditText
-                android:id="@+id/password_edit_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword" />
-        </android.support.design.widget.TextInputLayout>
-
-        <!-- Snippet from "Add buttons" section goes here. -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.button.MaterialButton
-                android:id="@+id/next_button"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:text="@string/oc_button_next"/>
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="132dp"
+                android:text="@string/oc_app_name"
+                android:textColor="@color/colorPrimary"
+                android:textAppearance="@style/TextAppearance.OpenChannel.Title" />
 
             <android.support.design.button.MaterialButton
-                android:id="@+id/cancel_button"
-                style="@style/Widget.OpenChannel.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_toLeftOf="@id/next_button"
-                android:layout_toStartOf="@id/next_button"
-                android:text="@string/oc_button_cancel"/>
-        </RelativeLayout>
-    </LinearLayout>
+                android:id="@+id/login"
+                android:layout_width="260dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="92dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/singpass"/>
+        </LinearLayout>
+
+    </RelativeLayout>
 </ScrollView>

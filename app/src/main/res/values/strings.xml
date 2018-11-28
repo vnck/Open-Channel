@@ -45,5 +45,7 @@
     <string name="short_description_about_project">Short Description about Project</string>
     <string name="access_chatbot">Access Chatbot</string>
     <string name="title_activity_channel">Channel</string>
+    <string name="oc_chatbot_name">YOUR OPEN CHANNEL GUIDE</string>
+    <string name="singpass">Log In With SingPass</string>
 
 </resources>

@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
         docRecyclerView.setHasFixedSize(true);
         docRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
         CardDocNotificationAdaptor docAdapter = new CardDocNotificationAdaptor(
-                DocNotificationEntry.initProductEntryList(getResources()));
+                DocNotificationEntry.initProductEntryList(getResources()), HomeFragment.this);
         docRecyclerView.setAdapter(docAdapter);
         docRecyclerView.addItemDecoration(new ChannelGridDecoration(largePadding, smallPadding));
 
@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
         actionRecyclerView.setHasFixedSize(true);
         actionRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
         CardActionNotificationAdaptor adapter = new CardActionNotificationAdaptor(
-                ActionNotificationEntry.initProductEntryList(getResources()));
+                ActionNotificationEntry.initProductEntryList(getResources()), HomeFragment.this);
         actionRecyclerView.setAdapter(adapter);
         actionRecyclerView.addItemDecoration(new ChannelGridDecoration(largePadding, smallPadding));
 
