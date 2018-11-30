@@ -1,5 +1,7 @@
 package g3_2.open_channel_app.channels;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -18,17 +20,25 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
     private List<ChannelEntry> productList;
     private ImageRequester imageRequester;
     private Fragment fragment;
+    private Context mContext;
 
-    public CardChannelAdapter(List<ChannelEntry> productList, Fragment fragment) {
+    public CardChannelAdapter(Context context,List<ChannelEntry> productList, Fragment fragment) {
         this.productList = productList;
         this.fragment = fragment;
         imageRequester = ImageRequester.getInstance();
+        mContext = context;
     }
 
     @NonNull
     @Override
     public CardChannelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_channel, parent, false);
+        layoutView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(mContext, ChannelActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
         return new CardChannelViewHolder(layoutView, fragment);
     }
 
@@ -43,12 +53,13 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Snackbar.make(v, "Subscription Feature Coming Soon", Snackbar.LENGTH_LONG)
-                            .setAction("Subscription", null).show();
+                    Intent intent = new Intent(mContext, ChannelActivity.class);
+                    mContext.startActivity(intent);
                 }
             });
             holder.currentItem = productList.get(position);
         }
+
     }
 
     @Override

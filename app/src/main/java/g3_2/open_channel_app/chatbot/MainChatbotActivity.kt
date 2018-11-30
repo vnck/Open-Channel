@@ -60,7 +60,7 @@ class MainChatbotActivity : AppCompatActivity() {
 
         val agent = ChatUser(
                 2,
-                "Agent",
+                "Open Channel Agent",
                 BitmapFactory.decodeResource(resources,
                         R.drawable.ic_account_circle)
         )
@@ -71,7 +71,9 @@ class MainChatbotActivity : AppCompatActivity() {
                     .setRight(true)
                     .setText(my_chat_view.inputText)
                     .build()
+
             )
+            my_chat_view.inputText = ""
 
             Fuel.get("/query",
                     listOf("query" to my_chat_view.inputText))
