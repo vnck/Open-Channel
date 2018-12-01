@@ -15,14 +15,26 @@
 
 
         <TextView
-            android:id="@+id/questions"
+            android:id="@+id/question"
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignBottom="@id/channelImage"
+            android:layout_weight="1"
             android:padding="8dp"
-            android:text="@string/title_placeholder"
+            android:text='"Question"'
+            android:textColor="@android:color/black"
             android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </android.support.design.widget.TextInputLayout>
 
     </RelativeLayout>
 
