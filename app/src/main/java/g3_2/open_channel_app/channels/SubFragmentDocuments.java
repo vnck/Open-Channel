@@ -12,14 +12,6 @@ import android.view.ViewGroup;
 import g3_2.open_channel_app.R;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SubFragmentDocuments.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SubFragmentDocuments#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SubFragmentDocuments extends Fragment{
 
     MaterialButton buttonDownloadDoc;

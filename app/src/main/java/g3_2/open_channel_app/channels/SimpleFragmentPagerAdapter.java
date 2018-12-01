@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import g3_2.open_channel_app.MyChannelFragment;
 import g3_2.open_channel_app.R;
+import g3_2.open_channel_app.channels.survey.SubFragmentActions;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,13 +21,8 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     public SimpleFragmentPagerAdapter(Context context, FragmentManager fm){
         super(fm);
         this.mContext = context;
-//        this.tabTitles = new String[] {"tab1", "tab2", "tab3"};
     }
-//    public SimpleFragmentPagerAdapter(Context context, FragmentManager fm, String[] tabTitles) {
-//        super(fm);
-//        this.mContext = context;
-//        this.tabTitles = tabTitles;
-//    }
+
 
     // This determines the fragment for each tab
     @Override

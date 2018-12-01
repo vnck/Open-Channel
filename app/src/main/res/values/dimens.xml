@@ -20,4 +20,5 @@
     <dimen name="oc_staggered_channel_grid_card_height_landscape">140dp</dimen>
     <dimen name="oc_notification_grid_spacing">8dp</dimen>
     <dimen name="oc_notification_grid_spacing_small">4dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>
