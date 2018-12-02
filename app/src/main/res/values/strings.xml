@@ -48,4 +48,8 @@
     <string name="oc_chatbot_name">YOUR OPEN CHANNEL GUIDE</string>
     <string name="singpass">Log In With SingPass</string>
 
+    <string name="TAG">TAG</string>
+    <string name="NRIC">NRIC</string>
+    <string name="pw">Password</string>
+
 </resources>

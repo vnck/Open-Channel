@@ -16,9 +16,10 @@
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
             android:cropToPadding="false"
-            android:scaleType="fitStart"
-            android:src="@raw/bg" />
-
+            android:scaleType="fitStart"/>
+            <!--
+            android:src="@raw/bg"
+            -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,6 +45,19 @@
                 android:text="@string/oc_app_name"
                 android:textColor="@color/colorPrimary"
                 android:textAppearance="@style/TextAppearance.OpenChannel.Title" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:hint="NRIC"
+                android:id="@+id/NRIC"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="80dp"
+                android:hint="Password"
+                android:id="@+id/pw"/>
 
             <android.support.design.button.MaterialButton
                 android:id="@+id/login"

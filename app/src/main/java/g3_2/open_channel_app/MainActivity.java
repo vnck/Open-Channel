@@ -1,6 +1,7 @@
 package g3_2.open_channel_app;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -13,18 +14,52 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import g3_2.open_channel_app.chatbot.MainChatbotActivity;
+import g3_2.open_channel_app.network.DocNotificationEntry;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements IActivityPlus {
 
     private DrawerLayout mDrawerLayout;
     private BottomNavigationView bottomNavigationView;
 
+    final String TAG = "TAG";
+    /**
+     * Instantiate mDB hashmap
+     */
+    HashMap<String, Database> mDB = new HashMap<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (getSharedPreferences("pathToUser",0).getString("getPath",null) != null) {
+            //TODO you need to add a listener to this
+            //TODO send the hashmap to fragment
+            Log.d(TAG, "getsharedpreferences success");
+            getData(getSharedPreferences("pathToUser",0).getString("getPath",null));
+
+            // print mDB
+            Log.d(TAG, "size" + mDB.size());
+            for (String key: mDB.keySet()){
+                Log.d(TAG, "nihao" + mDB.get(key));
+            }
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "sorry bro", Toast.LENGTH_LONG).show();
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -114,6 +149,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Manually displaying the first fragment - one time only
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        Bundle lol = new Bundle();
+        lol.putSerializable("mDB",mDB);
+        //TODO find a way to pass bundle with hashmap to fragment
         transaction.replace(R.id.fragmentContainer, HomeFragment.newInstance());
         transaction.commit();
     }
@@ -126,6 +164,53 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * @param pathToUser
+     *
+     * Queries Firebase using the pathToUser input
+     * After query is successful:
+     *      Takes class variable mDB (instantiated above)
+     *      mDB is a HashMap<String, Object>
+     *          key: value
+     *          profileID (ie johnny) : Database object
+     *
+     *      mDB can be accessed outside of this method if is refreshed
+     *      use the data to access personal details
+     * Database.id returns name of person
+     * Database.getData returns HashMap of all personal details
+     */
+
+    @Override
+    public void getData(String pathToUser) {
+        FirebaseFirestore fdb = FirebaseFirestore.getInstance();
+        DocumentReference profileRef = fdb.document(pathToUser);
+
+        profileRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot.exists()) {
+                        Database dbb = new Database(documentSnapshot);
+                        Log.d(TAG, "yo, dbb " + dbb.getId()); // check if dateBase type created
+
+                        String ds = documentSnapshot.getId();
+                        Log.d(TAG, "yo, ds " + ds); // check ID
+
+                        mDB.put(ds, dbb);
+                        Log.d(TAG, "getData success");
+                        Log.d(TAG, "size" + mDB.size()); // check is data has been added to mDB
+                        for (String key: mDB.keySet()){
+                            Log.d(TAG, "nihao" + mDB.get(key).getData()); // check mDB has been added correctly
+                        }
+                    }
+                } else {
+                    Log.d(TAG, "Get Data failed.");
+                }
+            }
+        });
     }
 
 //    @Override
