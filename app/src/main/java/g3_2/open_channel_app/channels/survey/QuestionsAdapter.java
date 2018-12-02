@@ -40,9 +40,7 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsViewHolder> 
     private Fragment fragment;
     private Context mContext;
     boolean value;
-    int count = 10;
-    int x = 0;
-    HashMap<String,ArrayList<String>> hash;
+    HashMap<String,Object> hash;
     private CollectionReference notebookRef = db.collection("channels").document("toapayoh").collection("Survey");
     public QuestionsAdapter(Context context,List<ChannelEntry> productList, Fragment fragment) {
         imageRequester = ImageRequester.getInstance();
@@ -78,50 +76,64 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsViewHolder> 
 
     @Override
     public int getItemCount() {
-        return count;
+        return 20;
     }
 
     public void loadQuestions() {
-        db.collection("channels").document("toapayoh").collection("Survey").document("Question1")
+        db.collection("channels").document("toapayoh").collection("Survey")
                 .get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        Log.d(TAG, "asd");
-                        count = 20;
-                    } else {
-                        Log.d(TAG, "No such document");
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                hash.put(document.getId(),document.getData());
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
                     }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException()); } }
-        });
-        for(int i = 1; i <= count; i++){
-            x++;
-//            Log.d(TAG, "line100" + count);
-            db.collection("channels").document("toapayoh").collection("Survey").document("Question" + i)
-        .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                Log.d(TAG, "line101213");
-                if (task.isSuccessful()) {
-                    Log.d(TAG, "line104");
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        ArrayList<String> tempList = new ArrayList();
-                        value = document.getBoolean("OpenEnded");
-                        tempList.add(String.valueOf(value));
-                        Log.d(TAG, String.valueOf(value));
-//                        hash.put("Question" + x,tempList);
-                    } else {
-                        Log.d(TAG, "No such document");
-                    }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException()); } }
-        });
-    }
+                });}
+
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                if (task.isSuccessful()) {
+//                    DocumentSnapshot document = task.getResult();
+//                    if (document.exists()) {
+//                        Log.d(TAG, "asd");
+//                    } else {
+//                        Log.d(TAG, "No such document");
+//                    }
+//                } else {
+//                    Log.d(TAG, "get failed with ", task.getException()); } }
+//        });
+//        for(int i = 1; i <= count; i++){
+//            x++;
+////            Log.d(TAG, "line100" + count);
+//            db.collection("channels").document("toapayoh").collection("Survey").document("Question" + i)
+//        .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                Log.d(TAG, "line101213");
+//                if (task.isSuccessful()) {
+//                    Log.d(TAG, "line104");
+//                    DocumentSnapshot document = task.getResult();
+//                    if (document.exists()) {
+//                        ArrayList<Object> tempList = new ArrayList();
+//                        value = document.getBoolean("OpenEnded");
+//                        tempList.add(String.valueOf(value));
+//                        Log.d(TAG, String.valueOf(value));
+////                        hash.put("Question" + x,tempList);
+//                    } else {
+//                        Log.d(TAG, "No such document");
+//                    }
+//                } else {
+//                    Log.d(TAG, "get failed with ", task.getException()); } }
+//        });
+//    }
 //    public void dataRetrieve() {
 //        DocumentReference docRef = db.collection("channels").document("toapayoh");
 ////        docRef.get()
@@ -162,6 +174,6 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsViewHolder> 
 //                }
 //            }
 //        });
-    }
+
 
 }
