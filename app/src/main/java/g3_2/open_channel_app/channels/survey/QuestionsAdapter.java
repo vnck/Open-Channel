@@ -9,7 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -40,29 +40,33 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsViewHolder> 
     private Fragment fragment;
     private Context mContext;
     boolean value;
-    int count = 0;
-
-    private CollectionReference notebookRef = db.collection("Notebook/toapayoh/Survey");
-    public QuestionsAdapter(Context context, List<ChannelEntry> productList, Fragment fragment) {
-        this.productList = productList;
-        this.fragment = fragment;
+    int count = 10;
+    int x = 0;
+    HashMap<String,ArrayList<String>> hash;
+    private CollectionReference notebookRef = db.collection("channels").document("toapayoh").collection("Survey");
+    public QuestionsAdapter(Context context,List<ChannelEntry> productList, Fragment fragment) {
         imageRequester = ImageRequester.getInstance();
         mContext = context;
+        Log.d(TAG, "Line50");
+
+        loadQuestions();
 //        dataRetrieve();
     }
 
     @NonNull
     @Override
     public QuestionsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        String x = "Question" + count;
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.survey_question_open_ended, parent, false);
+
         return new QuestionsViewHolder(layoutView,fragment);
     }
 
     @Override
     public void onBindViewHolder(@NonNull QuestionsViewHolder holder, int position) {
-        String x = "Question" + count;
-        if(loadNotes(x)){
+        String x = "Question" + position;
+        Log.d(TAG, "Line71");
+
+        if(true){
             holder.question.setText("Open Ended is true");
             holder.answer.setText("asd");
         }
@@ -70,36 +74,53 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsViewHolder> 
             holder.question.setText("Open Ended is false");
             holder.answer.setText("asvklzd");
         }
-        if (productList != null && position < productList.size()) {
-            ChannelEntry channel = productList.get(position);
-//            holder.channelTitle.setText(surveyQuestion.get("1_OpenEnded"));
-        }
     }
 
     @Override
     public int getItemCount() {
-        return productList.size();
+        return count;
     }
 
-    public boolean loadNotes(String questionNumber) {
-        notebookRef.document(questionNumber)
-        .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+    public void loadQuestions() {
+        db.collection("channels").document("toapayoh").collection("Survey").document("Question1")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-//                        Log.d(TAG, "DocumentSnapshot data: " + document.get("OpenEnded"));
-                        value = document.getBoolean("OpenEnded");
-                        Log.d(TAG, String.valueOf(value));
-
+                        Log.d(TAG, "asd");
+                        count = 20;
                     } else {
                         Log.d(TAG, "No such document");
                     }
                 } else {
                     Log.d(TAG, "get failed with ", task.getException()); } }
         });
-        return value;
+        for(int i = 1; i <= count; i++){
+            x++;
+//            Log.d(TAG, "line100" + count);
+            db.collection("channels").document("toapayoh").collection("Survey").document("Question" + i)
+        .get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                Log.d(TAG, "line101213");
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "line104");
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        ArrayList<String> tempList = new ArrayList();
+                        value = document.getBoolean("OpenEnded");
+                        tempList.add(String.valueOf(value));
+                        Log.d(TAG, String.valueOf(value));
+//                        hash.put("Question" + x,tempList);
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException()); } }
+        });
     }
 //    public void dataRetrieve() {
 //        DocumentReference docRef = db.collection("channels").document("toapayoh");
@@ -141,6 +162,6 @@ public class QuestionsAdapter extends RecyclerView.Adapter<QuestionsViewHolder> 
 //                }
 //            }
 //        });
-//    }
+    }
 
 }

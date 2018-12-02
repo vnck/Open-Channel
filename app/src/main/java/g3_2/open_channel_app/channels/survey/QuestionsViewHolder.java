@@ -17,7 +17,7 @@ public class QuestionsViewHolder extends RecyclerView.ViewHolder {
 
     public TextView question;
     public TextInputEditText answer;
-    public QuestionsViewHolder(@NonNull View itemView, Fragment fragment ) {
+    public QuestionsViewHolder(@NonNull View itemView, Fragment fragment) {
         super(itemView);
         question = itemView.findViewById(R.id.question);
         answer = itemView.findViewById(R.id.answer);

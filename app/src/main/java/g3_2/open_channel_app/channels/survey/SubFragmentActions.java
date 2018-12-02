@@ -37,7 +37,7 @@ public class SubFragmentActions extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
         QuestionsAdapter adapter = new QuestionsAdapter(
-                getContext(),ChannelEntry.initProductEntryList(getResources(),R.raw.survey), SubFragmentActions.this);
+                getContext(),ChannelEntry.initProductEntryList(getResources(),R.raw.mychannels), SubFragmentActions.this);
         recyclerView.setAdapter(adapter);
         int largePadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing);
         int smallPadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing_small);
