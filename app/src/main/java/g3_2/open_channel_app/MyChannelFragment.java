@@ -39,7 +39,7 @@ public class MyChannelFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         myChannelBank = FirebaseFirestore.getInstance();
-        myChannelQuery = myChannelBank.collection("channel").limit(10);
+        myChannelQuery = myChannelBank.collection("channel").whereArrayContains("subscribers", "user0").limit(10);
     }
 
     @Override
@@ -66,7 +66,8 @@ public class MyChannelFragment extends Fragment {
                                         document.getData().get("title").toString(),
                                         document.getData().get("url").toString(),
                                         document.getData().get("organisation").toString(),
-                                        document.getData().get("description").toString()
+                                        document.getData().get("description").toString(),
+                                        (List) document.getData().get("subscribers")
                                 );
                                 channelList.add(channel);
                             }

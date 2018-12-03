@@ -65,7 +65,8 @@ public class AllChannelFragment extends Fragment {
                                         document.getData().get("title").toString(),
                                         document.getData().get("url").toString(),
                                         document.getData().get("organisation").toString(),
-                                        document.getData().get("description").toString()
+                                        document.getData().get("description").toString(),
+                                        (List) document.getData().get("subscribers")
                                 );
                                 channelList.add(channel);
                             }

@@ -3,7 +3,6 @@ package g3_2.open_channel_app.channels;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -50,6 +49,11 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
             holder.channelOrganisation.setText(channel.organisation);
             holder.channelDescription.setText(channel.description);
             imageRequester.setImageFromUrl(holder.channelImage, channel.url);
+
+            if (channel.subscribers.contains("user0")){
+                holder.button.setText("following");
+            }
+
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
