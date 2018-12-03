@@ -30,16 +30,16 @@ public class MyChannelFragment extends Fragment {
     private Query myChannelQuery;
 
 
-    public static MyChannelFragment newInstance() {
-        return new MyChannelFragment();
+    public static MyChannelFragment newInstance(Query query) {
+        MyChannelFragment frag = new MyChannelFragment();
+        frag.myChannelQuery = query;
+        return frag;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        myChannelBank = FirebaseFirestore.getInstance();
-        myChannelQuery = myChannelBank.collection("channel").whereArrayContains("subscribers", "user0").limit(10);
     }
 
     @Override

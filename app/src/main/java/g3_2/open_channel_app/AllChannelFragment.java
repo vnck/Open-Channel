@@ -27,18 +27,18 @@ import g3_2.open_channel_app.network.ChannelEntry;
 public class AllChannelFragment extends Fragment {
 
     private FirebaseFirestore myChannelBank;
-    private Query myChannelQuery;
+    private Query allChannelQuery;
 
-    public static AllChannelFragment newInstance() {
-        return new AllChannelFragment();
+    public static AllChannelFragment newInstance(Query query) {
+        AllChannelFragment frag = new AllChannelFragment();
+        frag.allChannelQuery = query;
+        return frag;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        myChannelBank = FirebaseFirestore.getInstance();
-        myChannelQuery = myChannelBank.collection("channel").limit(10);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class AllChannelFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_all_channel, container, false);
 
-        getDocumentsFromCollection(myChannelQuery, view);
+        getDocumentsFromCollection(allChannelQuery, view);
 
         return view;
     }

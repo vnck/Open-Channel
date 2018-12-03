@@ -16,6 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+
 import g3_2.open_channel_app.chatbot.MainChatbotActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,10 +26,14 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private BottomNavigationView bottomNavigationView;
 
+    private FirebaseFirestore firestoreDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        firestoreDB = FirebaseFirestore.getInstance();
 
         setContentView(R.layout.activity_main);
 
@@ -92,15 +99,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         Fragment selectedFragment = null;
+                        Query query = null;
                         switch (item.getItemId()) {
                             case R.id.home:
                                 selectedFragment = HomeFragment.newInstance();
                                 break;
                             case R.id.myChannels:
-                                selectedFragment = MyChannelFragment.newInstance();
+                                query = firestoreDB.collection("channel").whereArrayContains("subscribers", "user0").limit(10);
+                                selectedFragment = MyChannelFragment.newInstance(query);
                                 break;
                             case R.id.allChannels:
-                                selectedFragment = AllChannelFragment.newInstance();
+                                query = firestoreDB.collection("channel").limit(10);
+                                selectedFragment = AllChannelFragment.newInstance(query);
                                 break;
                         }
                         if (selectedFragment != null) {
