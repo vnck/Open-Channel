@@ -13,8 +13,12 @@ import android.widget.ImageButton;
 import g3_2.open_channel_app.R;
 
 public class ChannelFragment extends Fragment {
-    public static ChannelFragment newInstance() {
-        return new ChannelFragment();
+
+    public String id;
+    public static ChannelFragment newInstance(String id) {
+        ChannelFragment frag = new ChannelFragment();
+        frag.id = id;
+        return frag;
     }
 
     @Override

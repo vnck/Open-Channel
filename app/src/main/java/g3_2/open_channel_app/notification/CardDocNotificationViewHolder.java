@@ -17,6 +17,7 @@ public class CardDocNotificationViewHolder extends RecyclerView.ViewHolder  impl
     public TextView notificationChannel;
     public TextView notificationDate;
     public ImageButton downloadButton;
+    public String id;
     private Fragment frag;
 
     public CardDocNotificationViewHolder(@NonNull View itemView, Fragment fragment) {
@@ -30,7 +31,7 @@ public class CardDocNotificationViewHolder extends RecyclerView.ViewHolder  impl
         frag = fragment;
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
-                Fragment selectedFragment = ChannelFragment.newInstance();
+                Fragment selectedFragment = ChannelFragment.newInstance(id);
                 if (selectedFragment != null) {
                     FragmentTransaction transaction = frag.getActivity().getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.fragmentContainer, selectedFragment);

@@ -38,6 +38,7 @@ public class CardDocNotificationAdaptor extends RecyclerView.Adapter<CardDocNoti
             holder.notificationTitle.setText(notification.title);
             holder.notificationChannel.setText(notification.channel);
             holder.notificationDate.setText(notification.date);
+            holder.id = notification.id;
 
             setOnClick(holder.downloadButton, notification.url);
         }

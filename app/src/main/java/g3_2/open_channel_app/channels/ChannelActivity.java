@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import g3_2.open_channel_app.LoginActivity;
 import g3_2.open_channel_app.ProfileFragment;
 import g3_2.open_channel_app.R;
@@ -22,6 +24,7 @@ import g3_2.open_channel_app.R;
 public class ChannelActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
+    private FirebaseFirestore firestoreDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,7 @@ public class ChannelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_channel);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, ChannelFragment.newInstance())
+                    .replace(R.id.container, ChannelFragment.newInstance(""))
                     .commitNow();
         }
 
@@ -90,15 +93,18 @@ public class ChannelActivity extends AppCompatActivity {
 //                    @Override
 //                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 //                        Fragment selectedFragment = null;
+//                        Query query = null;
 //                        switch (item.getItemId()) {
 //                            case R.id.home:
 //                                selectedFragment = HomeFragment.newInstance();
 //                                break;
 //                            case R.id.myChannels:
-//                                startActivity(new Intent(ChannelActivity.this, ChannelActivity.class));
+//                                query = firestoreDB.collection("channel").whereArrayContains("subscribers", "user0").limit(10);
+//                                selectedFragment = MyChannelFragment.newInstance(query);
 //                                break;
 //                            case R.id.allChannels:
-//                                selectedFragment = AllChannelFragment.newInstance();
+//                                query = firestoreDB.collection("channel").limit(10);
+//                                selectedFragment = AllChannelFragment.newInstance(query);
 //                                break;
 //                        }
 //                        if (selectedFragment != null) {

@@ -99,18 +99,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         Fragment selectedFragment = null;
-                        Query query = null;
                         switch (item.getItemId()) {
                             case R.id.home:
-                                selectedFragment = HomeFragment.newInstance();
+                                Query queryAct = firestoreDB.collection("actionentry").limit(10);
+                                Query queryDoc = firestoreDB.collection("documententry").limit(10);
+                                selectedFragment = HomeFragment.newInstance(queryAct, queryDoc);
                                 break;
                             case R.id.myChannels:
-                                query = firestoreDB.collection("channel").whereArrayContains("subscribers", "user0").limit(10);
-                                selectedFragment = MyChannelFragment.newInstance(query);
+                                Query querymyChannel = firestoreDB.collection("channel").whereArrayContains("subscribers", "user0").limit(10);
+                                selectedFragment = MyChannelFragment.newInstance(querymyChannel);
                                 break;
                             case R.id.allChannels:
-                                query = firestoreDB.collection("channel").limit(10);
-                                selectedFragment = AllChannelFragment.newInstance(query);
+                                Query queryAllChannel = firestoreDB.collection("channel").limit(10);
+                                selectedFragment = AllChannelFragment.newInstance(queryAllChannel);
                                 break;
                         }
                         if (selectedFragment != null) {
@@ -125,8 +126,12 @@ public class MainActivity extends AppCompatActivity {
                 });
 
         //Manually displaying the first fragment - one time only
+
+        Query queryAct = firestoreDB.collection("actionentry").limit(10);
+        Query queryDoc = firestoreDB.collection("documententry").limit(10);
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragmentContainer, HomeFragment.newInstance());
+        transaction.replace(R.id.fragmentContainer, HomeFragment.newInstance(queryAct, queryDoc));
         transaction.commit();
     }
 

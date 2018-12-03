@@ -38,12 +38,13 @@ public class CardActionNotificationAdaptor extends RecyclerView.Adapter<CardActi
             holder.notificationChannel.setText(notification.channel);
             holder.notificationDate.setText(notification.date);
             holder.notificationDue.setText(notification.due);
+            holder.id = notification.id;
 
-            setOnClick(holder.downloadButton, notification.url);
+            setOnClick(holder.downloadButton);
         }
     }
 
-    private void setOnClick(final ImageButton btn, final String url){
+    private void setOnClick(final ImageButton btn){
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
