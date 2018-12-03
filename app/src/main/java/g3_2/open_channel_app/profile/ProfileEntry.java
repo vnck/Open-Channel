@@ -1,6 +1,4 @@
-package g3_2.open_channel_app.network;
-
-import java.util.List;
+package g3_2.open_channel_app.profile;
 
 /**
  * A product entry in the list of products.
@@ -8,24 +6,31 @@ import java.util.List;
 public class ProfileEntry {
     private static final String TAG = ProfileEntry.class.getSimpleName();
 
-    public final String title;
-    public final String url;
-    public final String organisation;
-    public final String description;
-    public final List subscribers;
+    public final String firstname;
+    public final String lastname;
+    public final String dob;
+    public final String address;
+    public final String postalcode;
+    public final String hpnumber;
+    public final String homenumber;
+    public final String nric;
+    public final String email;
     public final String id;
+    public final String url;
 
     public ProfileEntry(
-            String title, String url, String organisation, String description, List subscribers, String id) {
-        this.title = title;
-        this.url = url;
-        this.organisation = organisation;
-        this.description = description;
-        this.subscribers = subscribers;
+            String firstname, String lastname, String dob, String address, String postalcode, String hpnumber, String homenumber, String nric, String email, String id, String url) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.dob = dob;
+        this.address = address;
+        this.postalcode = postalcode;
+        this.hpnumber = hpnumber;
+        this.homenumber = homenumber;
+        this.nric = nric;
+        this.email = email;
         this.id = id;
+        this.url = url;
     }
 
-    /**
-     * Loads a raw JSON at R.raw.products and converts it into a list of ProductEntry objects
-     */
 }

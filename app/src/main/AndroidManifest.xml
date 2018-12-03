@@ -17,7 +17,8 @@
         tools:replace="android:label">
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.SplashTheme">
+            android:theme="@style/Theme.OpenChannel.Launcher">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

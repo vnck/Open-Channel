@@ -2,12 +2,6 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
 
-    <item android:drawable="@color/colorPrimary"/>
+    <item android:drawable="@color/primaryWhite"/>
 
-    <item>
-        <bitmap
-            android:gravity="center"
-            android:tint="@color/primaryWhite"
-            android:src="@drawable/oc_logo"/>
-    </item>
 </layer-list>

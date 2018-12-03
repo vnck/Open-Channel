@@ -1,37 +1,38 @@
-package g3_2.open_channel_app.channels;
+package g3_2.open_channel_app.profile;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.NetworkImageView;
-
+import de.hdodenhof.circleimageview.CircleImageView;
 import g3_2.open_channel_app.R;
-import g3_2.open_channel_app.network.ChannelEntry;
 
-public class CardChannelViewHolder extends RecyclerView.ViewHolder {
+public class ProfileViewHolder extends RecyclerView.ViewHolder {
 
-    public NetworkImageView channelImage;
-    public TextView channelTitle;
-    public TextView channelOrganisation;
-    public TextView channelDescription;
-    public Button button;
-    public ChannelEntry currentItem;
+    public CircleImageView profilePic;
+    public TextView firstname;
+    public TextView lastname;
+    public TextView dob;
+    public TextView address;
+    public TextView postalcode;
+    public TextView hpnumber;
+    public TextView homenumber;
+    public TextView nric;
+    public TextView email;
 
 
-    public CardChannelViewHolder(@NonNull View itemView, Fragment fragment) {
+    public ProfileViewHolder(@NonNull View itemView) {
         super(itemView);
-        channelImage = itemView.findViewById(R.id.channelImage);
-        channelTitle = itemView.findViewById(R.id.title);
-        channelOrganisation = itemView.findViewById(R.id.organisation);
-        channelDescription = itemView.findViewById(R.id.description);
-        button= (Button) itemView.findViewById(R.id.subscribe_button);
-
+        profilePic = itemView.findViewById(R.id.user_profile);
+        firstname = itemView.findViewById(R.id.user_first_name);
+        lastname = itemView.findViewById(R.id.user_last_name);
+        address = itemView.findViewById(R.id.user_address);
+        dob = itemView.findViewById(R.id.user_dob);
+        postalcode = itemView.findViewById(R.id.user_postal_code);
+        hpnumber = itemView.findViewById(R.id.user_hp_no);
+        homenumber = itemView.findViewById(R.id.user_home_no);
+        nric = itemView.findViewById(R.id.user_nric);
+        email = itemView.findViewById(R.id.user_email);
     }
 }

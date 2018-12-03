@@ -7,7 +7,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.Theme_OpenChannel);
+        setTheme(R.style.Theme_OpenChannel_Launcher);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         if (savedInstanceState == null) {

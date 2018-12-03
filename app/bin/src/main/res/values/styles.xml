@@ -52,7 +52,7 @@
     </style>
 
     <style name="Theme.SplashTheme" parent="Theme.OpenChannel">
-        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
 
 </resources>

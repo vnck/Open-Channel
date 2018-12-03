@@ -13,28 +13,20 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:background="#FFF9F4">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/user_profile"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="96dp"
                 android:layout_height="96dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
-                android:src="@drawable/oc_account"
-                android:tint="?android:attr/textColorPrimary" />
-
-            <android.support.design.button.MaterialButton
-                android:id="@+id/material_unelevated_button"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
-                android:layout_width="96dp"
-                android:layout_height= "38dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="100dp"
-                android:background="#FFF9F4"
-                android:text="EDIT" />
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
 
 
         </RelativeLayout>
@@ -68,6 +60,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_first_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ProfileItemName"
@@ -76,7 +69,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ProfileItem1"
                 android:layout_toRightOf="@id/ProfileItem1"
-                android:text="John"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -112,6 +104,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_last_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ProfileItemLastName"
@@ -120,7 +113,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ProfileItem1_2"
                 android:layout_toRightOf="@id/ProfileItem1_2"
-                android:text="Lee"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -156,6 +148,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_nric"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ProfileItemID"
@@ -164,7 +157,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ProfileItem2"
                 android:layout_toRightOf="@id/ProfileItem2"
-                android:text="S9133456F"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -200,6 +192,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_dob"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ProfileItemDOB"
@@ -208,7 +201,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ProfileItem3"
                 android:layout_toRightOf="@id/ProfileItem3"
-                android:text="12 September 1996"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -245,6 +237,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_hp_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ContactItemMobile"
@@ -253,7 +246,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ContactItem1"
                 android:layout_toRightOf="@id/ContactItem1"
-                android:text="+65 9123 4567"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -289,6 +281,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_home_no"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ContactItemHome"
@@ -297,7 +290,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ContactItem1_2"
                 android:layout_toRightOf="@id/ContactItem1_2"
-                android:text="+65 6123 4567"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -333,6 +325,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ContactItemEmail"
@@ -341,7 +334,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ContactItem2"
                 android:layout_toRightOf="@id/ContactItem2"
-                android:text="john96233@mail.sg"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -379,6 +371,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ContactItemAddress"
@@ -387,7 +380,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ContactItem3"
                 android:layout_toRightOf="@id/ContactItem3"
-                android:text="8 Sompah Road"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
@@ -423,6 +415,7 @@
                 android:textColor="@color/primaryBlack" />
 
             <TextView
+                android:id="@+id/user_postal_code"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ContactItemPostalCode"
@@ -431,7 +424,6 @@
                 android:layout_marginTop="8dp"
                 android:layout_toEndOf="@id/ContactItem4"
                 android:layout_toRightOf="@id/ContactItem4"
-                android:text="512345"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 

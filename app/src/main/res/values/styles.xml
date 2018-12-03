@@ -51,8 +51,8 @@
         <item name="android:background">@color/bottomNavBarBackgroundColor</item>
     </style>
 
-    <style name="Theme.SplashTheme" parent="Theme.OpenChannel">
-        <item name="android:windowBackground">@drawable/splash</item>
+    <style name="Theme.OpenChannel.Launcher">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
 
 </resources>
