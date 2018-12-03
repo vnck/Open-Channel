@@ -10,16 +10,6 @@
     <string name="oc_channel_title">Title</string>
     <string name="oc_channel_description">Secondary text</string>
 
-    <!-- oc backdrop menu labels -->
-    <string name="oc_featured_label">Featured</string>
-    <string name="oc_apartment_label">Apartment</string>
-    <string name="oc_accessories_label">Accessories</string>
-    <string name="oc_shoes_label">Shoes</string>
-    <string name="oc_tops_label">Tops</string>
-    <string name="oc_bottoms_label">Bottoms</string>
-    <string name="oc_dresses_label">Dresses</string>
-    <string name="oc_account_label">My Account</string>
-
     <!-- oc bottom nav labels -->
     <string name="oc_account_title">Account</string>
     <string name="oc_my_channels_title">My Channels</string>

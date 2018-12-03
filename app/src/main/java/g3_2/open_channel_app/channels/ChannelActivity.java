@@ -29,7 +29,7 @@ public class ChannelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_channel);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, ChannelFragment.newInstance())
+                    .replace(R.id.container, ProfileFragment.newInstance())
                     .commitNow();
         }
 
