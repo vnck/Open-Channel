@@ -13,14 +13,16 @@ public class ChannelEntry {
     public final String organisation;
     public final String description;
     public final List subscribers;
+    public final String id;
 
     public ChannelEntry(
-            String title, String url, String organisation, String description, List subscribers) {
+            String title, String url, String organisation, String description, List subscribers, String id) {
         this.title = title;
         this.url = url;
         this.organisation = organisation;
         this.description = description;
         this.subscribers = subscribers;
+        this.id = id;
     }
 
     /**

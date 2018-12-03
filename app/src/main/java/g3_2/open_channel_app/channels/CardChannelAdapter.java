@@ -44,7 +44,7 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
     @Override
     public void onBindViewHolder(@NonNull CardChannelViewHolder holder, int position) {
         if (productList != null && position < productList.size()) {
-            ChannelEntry channel = productList.get(position);
+            final ChannelEntry channel = productList.get(position);
             holder.channelTitle.setText(channel.title);
             holder.channelOrganisation.setText(channel.organisation);
             holder.channelDescription.setText(channel.description);
@@ -54,10 +54,13 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
                 holder.button.setText("following");
             }
 
+            final String id = channel.id;
+
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, ChannelActivity.class);
+                    intent.putExtra(id, id);
                     mContext.startActivity(intent);
                 }
             });
