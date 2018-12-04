@@ -22,7 +22,7 @@ import g3_2.open_channel_app.R
 class MainChatbotActivity : AppCompatActivity() {
 
     companion object {
-        private const val ACCESS_TOKEN = "39f45c5f4049497ab81e0daa9942a5e3"
+        private const val ACCESS_TOKEN = "46fd96a8281a4eed868fdb04cb50fde9"
     }
 
 
@@ -66,59 +66,59 @@ class MainChatbotActivity : AppCompatActivity() {
         )
 
         my_chat_view.setOnClickSendButtonListener(View.OnClickListener {
-            my_chat_view.send(Message.Builder()
-                    .setUser(human)
-                    .setRight(true)
-                    .setText(my_chat_view.inputText)
-                    .build()
-
-            )
-            my_chat_view.inputText = ""
-
-            Fuel.get("/query",
-                    listOf("query" to my_chat_view.inputText))
-                    .responseJson { _, _, result ->
-                val reply = result.get().obj()
-                                .getJSONObject("result")
-                                .getJSONObject("fulfillment")
-                                .getString("speech")
-
                 my_chat_view.send(Message.Builder()
-                        .setUser(agent)
-                        .setText(reply)
+                        .setUser(human)
+                        .setRight(true)
+                        .setText(my_chat_view.inputText)
                         .build()
                 )
-                val intent:String? = result.get().obj()
-                        .getJSONObject("result")
-                        .optJSONObject("metadata")
-                        .optString("intentName")
 
-                if(intent!! == "WEIGHT") {
-                    val unitWeightName = result.get().obj()
-                            .getJSONObject("result")
-                            .getJSONObject("parameters")
-                            .getString("unit-weight-name")
-                    Log.d(TAG, "Line90")
+                my_chat_view.setInputTextHint("Type here")
+                Fuel.get("/query",
+                        listOf("query" to my_chat_view.inputText))
+                        .responseJson { _, _, result ->
+                            val reply = result.get().obj()
+                                    .getJSONObject("result")
+                                    .getJSONObject("fulfillment")
+                                    .getString("speech")
 
-                    val unitWeight = result.get().obj()
-                            .getJSONObject("result")
-                            .getJSONObject("parameters")
-                            .getJSONObject("unit-weight")
-                            .getDouble("amount")
+                            my_chat_view.send(Message.Builder()
+                                    .setUser(agent)
+                                    .setText(reply)
+                                    .build()
+                            )
+                            val intent: String? = result.get().obj()
+                                    .getJSONObject("result")
+                                    .optJSONObject("metadata")
+                                    .optString("intentName")
 
-                    val rresult = if(unitWeightName == "lb") {
-                        unitWeight * 2.20462
-                    } else {
-                        unitWeight / 2.20462
-                    }
+//                if(intent!! == "WEIGHT") {
+//                    val unitWeightName = result.get().obj()
+//                            .getJSONObject("result")
+//                            .getJSONObject("parameters")
+//                            .getString("unit-weight-name")
+//                    Log.d(TAG, "Line90")
+//
+//                    val unitWeight = result.get().obj()
+//                            .getJSONObject("result")
+//                            .getJSONObject("parameters")
+//                            .getJSONObject("unit-weight")
+//                            .getDouble("amount")
+//
+//                    val rresult = if(unitWeightName == "lb") {
+//                        unitWeight * 2.20462
+//                    } else {
+//                        unitWeight / 2.20462
+//                    }
+//
+//                    my_chat_view.send(Message.Builder()
+//                            .setUser(agent)
+//                            .setText("That's ${"%.2f".format(rresult)} $unitWeightName")
+//                            .build()
+//                    )
+//                }
+                        }
 
-                    my_chat_view.send(Message.Builder()
-                            .setUser(agent)
-                            .setText("That's ${"%.2f".format(rresult)} $unitWeightName")
-                            .build()
-                    )
-                }
-            }
-        })
+            })
     }
 }
