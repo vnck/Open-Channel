@@ -106,8 +106,8 @@ public class MainActivity extends AppCompatActivity {
                                 selectedFragment = HomeFragment.newInstance(queryAct, queryDoc);
                                 break;
                             case R.id.myChannels:
-                                Query querymyChannel = firestoreDB.collection("channel").limit(10);
-                                selectedFragment = MyChannelFragment.newInstance(querymyChannel);
+                                Query queryMyChannel = firestoreDB.collection("channel").limit(10);
+                                selectedFragment = MyChannelFragment.newInstance(queryMyChannel);
                                 break;
                             case R.id.allChannels:
                                 Query queryAllChannel = firestoreDB.collection("channel").limit(10);

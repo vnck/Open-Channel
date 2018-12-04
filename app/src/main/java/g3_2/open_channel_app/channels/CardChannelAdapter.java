@@ -34,12 +34,6 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
     @Override
     public CardChannelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_channel, parent, false);
-        layoutView.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                Intent intent = new Intent(mContext, ChannelActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
         return new CardChannelViewHolder(layoutView, fragment);
     }
 
@@ -57,7 +51,13 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
             }
 
             final String id = channel.id;
-
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, ChannelActivity.class);
+                    intent.putExtra("Id",channel.id);
+                    mContext.startActivity(intent);
+                }});
             holder.button.setOnClickListener(new View.OnClickListener() {
 
 
