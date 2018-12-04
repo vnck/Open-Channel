@@ -31,17 +31,17 @@ public class CardActionNotificationViewHolder extends RecyclerView.ViewHolder  i
         notificationDate = itemView.findViewById(R.id.date);
         notificationDue = itemView.findViewById(R.id.due);
         frag = fragment;
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                Fragment selectedFragment = ChannelFragment.newInstance(id);
-                if (selectedFragment != null) {
-                    FragmentTransaction transaction = frag.getActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragmentContainer, selectedFragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                }
-            }
-        });
+//        itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override public void onClick(View v) {
+//                Fragment selectedFragment = ChannelFragment.newInstance(id);
+//                if (selectedFragment != null) {
+//                    FragmentTransaction transaction = frag.getActivity().getSupportFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.fragmentContainer, selectedFragment);
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
+//                }
+//            }
+//        });
     }
 
     @Override

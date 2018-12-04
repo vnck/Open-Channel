@@ -1,5 +1,6 @@
 package g3_2.open_channel_app.notification;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -13,21 +14,31 @@ import android.widget.ImageButton;
 import java.util.List;
 
 import g3_2.open_channel_app.R;
+import g3_2.open_channel_app.channels.ChannelActivity;
 import g3_2.open_channel_app.network.DocNotificationEntry;
 
 public class CardDocNotificationAdaptor extends RecyclerView.Adapter<CardDocNotificationViewHolder>  {
     private List<DocNotificationEntry> list;
     private Fragment fragment;
+    private Context mContext;
 
-    public CardDocNotificationAdaptor(List<DocNotificationEntry> list, Fragment fragment) {
+    public CardDocNotificationAdaptor(Context context, List<DocNotificationEntry> list, Fragment fragment) {
         this.list = list;
         this.fragment = fragment;
+        mContext = context;
+
     }
 
     @NonNull
     @Override
     public CardDocNotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_doc_notification, parent, false);
+        layoutView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                Intent intent = new Intent(mContext, ChannelActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
         return new CardDocNotificationViewHolder(layoutView, fragment);
     }
 

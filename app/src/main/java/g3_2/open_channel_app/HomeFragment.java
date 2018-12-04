@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment {
                             recyclerView.setHasFixedSize(true);
                             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
 
-                            CardDocNotificationAdaptor adapter = new CardDocNotificationAdaptor(
+                            CardDocNotificationAdaptor adapter = new CardDocNotificationAdaptor(getContext(),
                                     notificationList, HomeFragment.this);
                             recyclerView.setAdapter(adapter);
                             int largePadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing);
@@ -109,7 +109,7 @@ public class HomeFragment extends Fragment {
                             recyclerView.setHasFixedSize(true);
                             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1, GridLayoutManager.VERTICAL, false));
 
-                            CardActionNotificationAdaptor adapter = new CardActionNotificationAdaptor(
+                            CardActionNotificationAdaptor adapter = new CardActionNotificationAdaptor(getContext(),
                                     notificationList, HomeFragment.this);
                             recyclerView.setAdapter(adapter);
                             int largePadding = getResources().getDimensionPixelSize(R.dimen.oc_channel_grid_spacing);
