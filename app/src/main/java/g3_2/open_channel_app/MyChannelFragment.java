@@ -24,8 +24,6 @@ import java.util.List;
 import g3_2.open_channel_app.channels.CardChannelAdapter;
 import g3_2.open_channel_app.network.ChannelEntry;
 
-import static android.support.constraint.Constraints.TAG;
-
 public class MyChannelFragment extends Fragment {
 
     private FirebaseFirestore myChannelBank;
@@ -35,8 +33,6 @@ public class MyChannelFragment extends Fragment {
     public static MyChannelFragment newInstance(Query query) {
         MyChannelFragment frag = new MyChannelFragment();
         frag.myChannelQuery = query;
-        Log.d(TAG, "line 38 - channel activity");
-
         return frag;
     }
 
@@ -44,8 +40,6 @@ public class MyChannelFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-        Log.d(TAG, "line 47 - channel activity");
-
     }
 
     @Override
@@ -53,8 +47,8 @@ public class MyChannelFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_my_channel, container, false);
+
         getDocumentsFromCollection(myChannelQuery, view);
-        Log.d(TAG, "line 54 - channel activity");
 
         return view;
     }

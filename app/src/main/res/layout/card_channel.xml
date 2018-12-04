@@ -13,6 +13,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/channelImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/oc_channel_card_image_height"
+            android:background="@color/primaryWhite"
+            android:scaleType="centerCrop" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/oc_channel_card_image_height"
