@@ -30,9 +30,10 @@ public class ChannelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
+        String id = getIntent().getStringExtra("id");
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, ChannelFragment.newInstance(""))
+                    .replace(R.id.container, ChannelFragment.newInstance(id))
                     .commitNow();
         }
 
