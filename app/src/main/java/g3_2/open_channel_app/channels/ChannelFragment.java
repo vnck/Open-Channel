@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,15 @@ import android.widget.ImageButton;
 
 import g3_2.open_channel_app.R;
 
+import static android.support.constraint.Constraints.TAG;
+
 public class ChannelFragment extends Fragment {
 
     public String id;
     public static ChannelFragment newInstance(String id) {
         ChannelFragment frag = new ChannelFragment();
         frag.id = id;
+        Log.d(TAG, id + "In Channel Fragment");
         return frag;
     }
 

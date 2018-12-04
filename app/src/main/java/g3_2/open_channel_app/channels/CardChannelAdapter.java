@@ -55,7 +55,7 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, ChannelActivity.class);
-                    intent.putExtra("Id",channel.id);
+                    intent.putExtra("id",channel.id);
                     mContext.startActivity(intent);
                 }});
             holder.button.setOnClickListener(new View.OnClickListener() {
