@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -19,23 +20,27 @@ import g3_2.open_channel_app.LoginActivity;
 import g3_2.open_channel_app.ProfileFragment;
 import g3_2.open_channel_app.R;
 
+import static android.support.constraint.Constraints.TAG;
+
 // UNUSED
 
 public class ChannelActivity extends AppCompatActivity {
 
     private DrawerLayout mDrawerLayout;
-    private FirebaseFirestore firestoreDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
-        String id = getIntent().getStringExtra("id");
+//        String id = getIntent().getStringExtra("id");
+        Log.d(TAG, "line 36 - channel activity");
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, ChannelFragment.newInstance(id))
+                    .replace(R.id.container, ChannelFragment.newInstance(""))
                     .commitNow();
         }
+        Log.d(TAG, "line 43 - channel activity");
 
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import java.util.List;
 import g3_2.open_channel_app.R;
 import g3_2.open_channel_app.network.ChannelEntry;
 import g3_2.open_channel_app.network.ImageRequester;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHolder>  {
     private List<ChannelEntry> productList;
@@ -34,33 +37,35 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
     @Override
     public CardChannelViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_channel, parent, false);
+        Log.d(TAG, "line 40 - cardchannel adapter");
+
         return new CardChannelViewHolder(layoutView, fragment);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CardChannelViewHolder holder, int position) {
+        Log.d(TAG, "line 47 - cardchannel adapter");
         if (productList != null && position < productList.size()) {
             final ChannelEntry channel = productList.get(position);
             holder.channelTitle.setText(channel.title);
             holder.channelOrganisation.setText(channel.organisation);
             holder.channelDescription.setText(channel.description);
             imageRequester.setImageFromUrl(holder.channelImage, channel.url);
+            Log.d(TAG, "line 51 - cardchannel adapter");
 
             if (channel.subscribers.contains("user0")){
                 holder.button.setText("following");
             }
 
             final String id = channel.id;
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, ChannelActivity.class);
-                    intent.putExtra("Id",channel.id);
-                    mContext.startActivity(intent);
-                }});
+//            holder.channelImage.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(mContext, ChannelActivity.class);
+//                    intent.putExtra("Id",channel.id);
+//                    mContext.startActivity(intent);
+//                }});
             holder.button.setOnClickListener(new View.OnClickListener() {
-
-
 
                 @Override
                 public void onClick(View v) {
