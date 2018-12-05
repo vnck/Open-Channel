@@ -2,6 +2,7 @@ package g3_2.open_channel_app.channels;
 
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -16,11 +17,15 @@ import g3_2.open_channel_app.channels.survey.SubFragmentActions;
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     private String tabTitles[] = new String[] {"tab1", "tab2", "tab3"} ;
     private Context mContext;
+    private Bundle details;
+    private String description;
     private int tabCount = tabTitles.length;
 
-    public SimpleFragmentPagerAdapter(Context context, FragmentManager fm){
+    public SimpleFragmentPagerAdapter(Context context, FragmentManager fm,Bundle details){
         super(fm);
         this.mContext = context;
+        this.details = details;
+        this.description = (String) details.get("description");
     }
 
 
@@ -28,7 +33,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new SubFragmentDescription();
+            return SubFragmentDescription.newInstance(description);
         } else if (position == 1){
             return new SubFragmentDocuments();
         } else {

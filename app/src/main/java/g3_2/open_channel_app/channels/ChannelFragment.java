@@ -63,7 +63,7 @@ public class ChannelFragment extends Fragment {
         // Find the view pager that will allow the user to swipe between fragments
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
         // Create an adapter that knows which fragment should be shown on each page
-        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(this.getActivity(), getChildFragmentManager());
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(this.getActivity(), getChildFragmentManager(),details);
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
         // Give the TabLayout the ViewPager
