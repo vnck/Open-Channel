@@ -7,13 +7,12 @@
     android:orientation="vertical"
     tools:context=".channels.ChannelFragment">
 
-    <ImageButton
-        android:id="@+id/org_image"
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/channelImage"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:contentDescription="@string/tampines_hub"
+        android:layout_height="@dimen/oc_channel_card_image_height"
+        android:background="@color/primaryWhite"
         android:scaleType="centerCrop" />
-
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"

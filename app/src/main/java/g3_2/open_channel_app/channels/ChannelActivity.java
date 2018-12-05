@@ -33,11 +33,13 @@ public class ChannelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channel);
-        String id = getIntent().getStringExtra("id");
-        Log.d(TAG, id);
+        Log.d(TAG, "Line 36");
+        Bundle details = getIntent().getExtras();
+//        String id = getIntent().getStringExtra("id");
+        Log.d(TAG, details.toString());
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, ChannelFragment.newInstance(id))
+                    .replace(R.id.container, new ChannelFragment(details))
                     .commitNow();
         }
 

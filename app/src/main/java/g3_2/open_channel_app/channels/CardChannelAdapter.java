@@ -2,6 +2,7 @@ package g3_2.open_channel_app.channels;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -55,22 +56,27 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, ChannelActivity.class);
-                    intent.putExtra("id",channel.id);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("id", channel.id);
+                    bundle.putString("title", channel.title);
+                    bundle.putString("organisation", channel.description);
+                    bundle.putString("url", channel.url);
+                    intent.putExtras(bundle);
                     mContext.startActivity(intent);
                 }});
-            holder.button.setOnClickListener(new View.OnClickListener() {
-
-
-
-                @Override
-                public void onClick(View v) {
-                    Fragment selectedFragment = ChannelFragment.newInstance(id);
-                    FragmentTransaction transaction = ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragmentContainer, selectedFragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                }
-            });
+//            holder.button.setOnClickListener(new View.OnClickListener() {
+//
+//
+//
+//                @Override
+//                public void onClick(View v) {
+//                    Fragment selectedFragment = ChannelFragment.newInstance(id);
+//                    FragmentTransaction transaction = ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.fragmentContainer, selectedFragment);
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
+//                }
+//            });
             holder.currentItem = productList.get(position);
         }
 
