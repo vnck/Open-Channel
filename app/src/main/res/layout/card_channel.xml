@@ -23,8 +23,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/oc_channel_card_image_height"
-            android:background="@drawable/gradient_bg" >
-        </FrameLayout>
+            android:background="@drawable/gradient_bg"></FrameLayout>
 
 
         <TextView

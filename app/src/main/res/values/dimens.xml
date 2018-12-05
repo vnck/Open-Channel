@@ -7,6 +7,7 @@
     <dimen name="oc_channel_grid_reveal_height">240dp</dimen>
 
     <dimen name="fragment_horizontal_margin">8dp</dimen>
+    <dimen name="fragment_channel_image_height">240dp</dimen>
 
     <!-- Dimens for staggered asymmetric grid layout cards-->
     <dimen name="oc_staggered_channel_grid_spacing_large">30dp</dimen>
