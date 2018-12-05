@@ -1,17 +1,22 @@
 package g3_2.open_channel_app.channels;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
 
 import g3_2.open_channel_app.R;
 import g3_2.open_channel_app.network.ImageRequester;
@@ -23,7 +28,8 @@ public class ChannelFragment extends Fragment {
     public String id;
     public String url;
     public Bundle details;
-    private ImageRequester imageRequester;
+    private RequestQueue mRequestQueue;
+    private ImageLoader mImageLoader;
 
     public ChannelFragment() {
         Log.d(TAG, "no arg constructor channelfragment");
@@ -51,6 +57,25 @@ public class ChannelFragment extends Fragment {
 
         Log.d(TAG, "Channel Frag 42");
         Log.d(TAG,  details.toString());
+
+        // ZL code
+        mRequestQueue = Volley.newRequestQueue(getContext());
+        mImageLoader = new ImageLoader(mRequestQueue, new ImageLoader.ImageCache() {
+            private final LruCache<String, Bitmap> mCache = new LruCache<>(10);
+            @Override
+            public Bitmap getBitmap(String url) {
+                return mCache.get(url);
+            }
+
+            @Override
+            public void putBitmap(String url, Bitmap bitmap) {
+                mCache.put(url,bitmap);
+            }
+        });
+
+        channelImage = view.findViewById(R.id.channelImage);
+        channelImage.setImageUrl(this.url,mImageLoader);
+
 
 //        ImageRequester.getInstance();
 //
