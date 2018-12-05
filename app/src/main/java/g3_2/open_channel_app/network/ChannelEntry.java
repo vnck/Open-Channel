@@ -14,11 +14,13 @@ public class ChannelEntry {
     public final String description;
     public final List subscribers;
     public final String id;
+    public final String pdfurl;
 
     public ChannelEntry(
-            String title, String url, String organisation, String description, List subscribers, String id) {
+            String title, String url, String pdfurl, String organisation, String description, List subscribers, String id) {
         this.title = title;
         this.url = url;
+        this.pdfurl = pdfurl;
         this.organisation = organisation;
         this.description = description;
         this.subscribers = subscribers;

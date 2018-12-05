@@ -15,7 +15,15 @@ import g3_2.open_channel_app.R;
 public class SubFragmentDocuments extends Fragment{
 
     MaterialButton buttonDownloadDoc;
-    String pdfLink = "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf";
+    //String pdfLink = "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf";
+    public String pdfurl;
+
+
+    public static SubFragmentDocuments newInstance(String pdfurl){
+        SubFragmentDocuments frag = new SubFragmentDocuments();
+        frag.pdfurl = pdfurl;
+        return frag;
+    }
 
 
     //ToDo implement Document fragment
@@ -33,14 +41,10 @@ public class SubFragmentDocuments extends Fragment{
 
                 //brings to chrome and then downloads and previews pdf
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(Uri.parse(pdfLink), "text/html");
+                intent.setDataAndType(Uri.parse(pdfurl), "text/html");
                 startActivity(intent);
-
-
             }
         });
-
-
 
         return rootView;
     }

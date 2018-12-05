@@ -19,6 +19,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     private Context mContext;
     private Bundle details;
     private String description;
+    private String pdfurl;
     private int tabCount = tabTitles.length;
 
     public SimpleFragmentPagerAdapter(Context context, FragmentManager fm,Bundle details){
@@ -26,6 +27,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         this.mContext = context;
         this.details = details;
         this.description = (String) details.get("description");
+        this.pdfurl = (String) details.get("pdfurl");
     }
 
 
@@ -35,7 +37,7 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
         if (position == 0) {
             return SubFragmentDescription.newInstance(description);
         } else if (position == 1){
-            return new SubFragmentDocuments();
+            return SubFragmentDocuments.newInstance(pdfurl);
         } else {
             return new SubFragmentActions();
         }

@@ -22,6 +22,7 @@ public class ChannelFragment extends Fragment {
     public NetworkImageView channelImage;
     public String id;
     public String url;
+    public String pdfurl;
     public Bundle details;
     private ImageRequester imageRequester;
 
@@ -30,6 +31,7 @@ public class ChannelFragment extends Fragment {
 //        ChannelFragment frag = new ChannelFragment();
         this.id = "no find";
         this.url = "invalid url";
+        this.pdfurl = "invalid pdfurl";
         Bundle x = new Bundle();
         this.details = x;
     }
@@ -39,6 +41,7 @@ public class ChannelFragment extends Fragment {
 //        ChannelFragment frag = new ChannelFragment();
         this.id = bundle.getString("id");
         this.url = bundle.getString("url");
+        this.pdfurl = bundle.getString("pdfurl");
         this.details = bundle;
         Log.d(TAG, this.id + "In Channel Fragment");
     }

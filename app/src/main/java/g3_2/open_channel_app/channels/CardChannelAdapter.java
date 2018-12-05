@@ -62,6 +62,7 @@ public class CardChannelAdapter extends RecyclerView.Adapter<CardChannelViewHold
                     bundle.putString("description", channel.description);
                     bundle.putString("organisation", channel.organisation);
                     bundle.putString("url", channel.url);
+                    bundle.putString("pdfurl", channel.pdfurl);
 
                     intent.putExtras(bundle);
                     mContext.startActivity(intent);

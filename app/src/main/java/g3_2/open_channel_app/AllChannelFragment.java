@@ -64,6 +64,7 @@ public class AllChannelFragment extends Fragment {
                                 ChannelEntry channel = new ChannelEntry(
                                         document.getData().get("title").toString(),
                                         document.getData().get("url").toString(),
+                                        document.getData().get("pdfurl").toString(),
                                         document.getData().get("organisation").toString(),
                                         document.getData().get("description").toString(),
                                         (List) document.getData().get("subscribers"),
