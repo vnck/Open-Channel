@@ -1,8 +1,10 @@
 package g3_2.open_channel_app.channels.survey;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.button.MaterialButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,9 @@ import android.view.ViewGroup;
 import g3_2.open_channel_app.R;
 
 public class SubFragmentActions extends Fragment {
+
+    MaterialButton buttonTakeSurvey;
+
 
     public static SubFragmentActions newInstance() {
         return new SubFragmentActions();
@@ -27,6 +32,17 @@ public class SubFragmentActions extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.subfragment_actions, container, false);
+
+        buttonTakeSurvey = view.findViewById(R.id.buttonTakeSurvey);
+        buttonTakeSurvey.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), SurveyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 //        RecyclerView recyclerView = view.findViewById(R.id.my_channel_recycler_view);
 //        recyclerView.setHasFixedSize(true);

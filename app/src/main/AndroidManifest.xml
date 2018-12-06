@@ -42,6 +42,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="g3_2.open_channel_app.MainActivity" />
         </activity>
+        <activity
+            android:name=".channels.survey.SurveyActivity"
+            android:label="Survey"
+            android:parentActivityName=".channels.ChannelActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="g3_2.open_channel_app.channels.ChannelActivity" />
+        </activity>
     </application>
 
 </manifest>

@@ -10,12 +10,48 @@
     android:paddingEnd="@dimen/oc_channel_grid_spacing"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:paddingTop="16dp">
 
-    <android.support.v7.widget.RecyclerView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="13dp"
+            android:text="survey"
+            android:textAppearance="@style/TextAppearance.OpenChannel.Title"
+            android:textSize="20dp" />
+
+        <!-- Snippet from "Add text fields" section goes here. -->
+
+
+        <!-- Snippet from "Add buttons" section goes here. -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.button.MaterialButton
+                android:id="@+id/buttonTakeSurvey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Take Survey"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!--<android.support.v7.widget.RecyclerView
         android:id="@+id/my_channel_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp"/>-->
 
 
 </ScrollView>
