@@ -77,8 +77,8 @@ public class SurveyFragment extends Fragment {
                         if (survey != null){
                             SurveyViewHolder holder = new SurveyViewHolder(view);
                             holder.survey_title.setText(survey.title);
-                            SurveyEntry.MultipleChoiceQuestion mcq = (SurveyEntry.MultipleChoiceQuestion) survey.questions[0];
-                            SurveyEntry.OpenEndedQuestion openended = (SurveyEntry.OpenEndedQuestion) survey.questions[1];
+                            SurveyEntry.MultipleChoiceQuestion mcq = (SurveyEntry.MultipleChoiceQuestion) survey.questions.get(0);
+                            SurveyEntry.OpenEndedQuestion openended = (SurveyEntry.OpenEndedQuestion) survey.questions.get(1);
                             holder.q1_question.setText(mcq.question);
                             holder.q1_ans1.setText(mcq.answers.get(0));
                             holder.q1_ans2.setText(mcq.answers.get(1));

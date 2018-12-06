@@ -3,6 +3,7 @@ package g3_2.open_channel_app.channels.survey;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,7 +13,7 @@ public class SurveyEntry {
     //private static final String TAG = SurveyEntry.class.getSimpleName();
 
     public String title;
-    public Question[] questions;
+    public ArrayList<Question> questions;
 
 
     public SurveyEntry(Map<String, Object> getData) {
@@ -21,31 +22,39 @@ public class SurveyEntry {
         ArrayList<Question> temp = new ArrayList<>();
         for (Map.Entry<String, Object> entry: getData.entrySet()){
             String key = entry.getKey();
-            Map val = (Map) entry.getValue();
-            if (key.contains("question") && val != null && val.get(key) instanceof String) {
-                temp.add(buildQuestion(val));
-                Log.i("TAG", temp.toString());
+            Map value = (Map) entry.getValue();
+            if (key.contains("question")) {
+                Map<String, String> questionMap = new HashMap<>();
+                for (Object obj : value.keySet())
+                    questionMap.put(obj.toString(), value.get(obj).toString());
+                Log.i("testing.....", questionMap.toString());
+                temp.add(buildQuestion(questionMap));
+
+                Boolean isQn = temp.get(0) instanceof  Question;
+                String s = "isQuestion: " + isQn.toString();
+                Log.i("testing.....", s);
             }
         }
-        this.questions = (Question[]) temp.toArray();
+        Log.i("testing.....", "temp: "+temp.toString());
+        this.questions = temp;
 
     }
 
-    public SurveyEntry(String title, Map<String, String>... questionMaps) {
+    /*public SurveyEntry(String title, Map<String, String>... questionMaps) {
         this.title = title;
         ArrayList<Question> temp = new ArrayList<>();
         for (Map<String, String> questionMap : questionMaps)
             temp.add(buildQuestion(questionMap));
         this.questions = (Question[]) temp.toArray();
-    }
+    }*/
 
     public String getTitle() { return title; }
 
-    public Question[] getQuestions() { return questions; }
+    public ArrayList<Question> getQuestions() { return questions; }
 
 
 
-    public Question buildQuestion(Map questionMap) {
+    public Question buildQuestion(Map<String, String> questionMap) {
         String type = questionMap.get("type");
         questionMap.remove("type");
 
@@ -73,11 +82,14 @@ public class SurveyEntry {
 
         MultipleChoiceQuestion(Map<String, String> questionMap) {
             this.question = questionMap.get("question");
+            this.answers = new ArrayList<>();
             questionMap.remove("question");
+            Log.i("testing.....", questionMap.toString());
 
             for (String key : questionMap.keySet()){
                 if (key.contains("answer"))
-                    answers.add(questionMap.get(key));
+                    Log.i("testing.....", questionMap.get(key));
+                answers.add(questionMap.get(key));
             }
         }
     }
