@@ -2,6 +2,8 @@ package g3_2.open_channel_app.channels.survey;
 
 import android.util.Log;
 
+import com.google.firebase.firestore.DocumentReference;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,8 +17,11 @@ public class SurveyEntry {
     public String title;
     public ArrayList<Question> questions;
 
+    public String id;
+    public DocumentReference responses;
 
-    public SurveyEntry(Map<String, Object> getData) {
+
+    SurveyEntry(Map<String, Object> getData) {
         this.title = (String) getData.get("title");
         getData.remove("title");
         ArrayList<Question> temp = new ArrayList<>();
@@ -54,16 +59,18 @@ public class SurveyEntry {
 
 
 
-    public Question buildQuestion(Map<String, String> questionMap) {
+    Question buildQuestion(Map<String, String> questionMap) {
         String type = questionMap.get("type");
         questionMap.remove("type");
 
-        if (type.equals("multiple choice"))
-            return new MultipleChoiceQuestion(questionMap);
-        else if (type.equals("open ended"))
-            return new OpenEndedQuestion(questionMap);
-        else
-            return new Question(questionMap.get("question"));
+        switch(type){
+            case "multiple choice":
+                return new MultipleChoiceQuestion(questionMap);
+            case "open ended":
+                return new OpenEndedQuestion(questionMap);
+            default:
+                return new Question(questionMap.get("question"));
+        }
     }
 
 
