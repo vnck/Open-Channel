@@ -1,10 +1,7 @@
 package g3_2.open_channel_app.channels;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +28,7 @@ public class CardChannelViewHolder extends RecyclerView.ViewHolder {
         channelTitle = itemView.findViewById(R.id.title);
         channelOrganisation = itemView.findViewById(R.id.organisation);
         channelDescription = itemView.findViewById(R.id.description);
-        button= (Button) itemView.findViewById(R.id.subscribe_button);
+        button= itemView.findViewById(R.id.subscribe_button);
 
     }
 }

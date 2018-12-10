@@ -3,7 +3,6 @@ package g3_2.open_channel_app.notification;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,7 +13,7 @@ import android.widget.ImageButton;
 import java.util.List;
 
 import g3_2.open_channel_app.R;
-import g3_2.open_channel_app.channels.ChannelActivity;
+import g3_2.open_channel_app.channels.survey.SurveyActivity;
 import g3_2.open_channel_app.network.ActionNotificationEntry;
 
 public class CardActionNotificationAdaptor extends RecyclerView.Adapter<CardActionNotificationViewHolder>  {
@@ -33,12 +32,6 @@ public class CardActionNotificationAdaptor extends RecyclerView.Adapter<CardActi
     @Override
     public CardActionNotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_action_notification, parent, false);
-        layoutView.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                Intent intent = new Intent(mContext, ChannelActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
         return new CardActionNotificationViewHolder(layoutView, fragment);
     }
 
@@ -61,8 +54,8 @@ public class CardActionNotificationAdaptor extends RecyclerView.Adapter<CardActi
             @Override
             public void onClick(View v) {
                 // TODO: download function
-                Snackbar.make(v, "Action Feature Coming Soon", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(fragment.getContext(), SurveyActivity.class);
+                fragment.getContext().startActivity(intent);
             }
         });
     }

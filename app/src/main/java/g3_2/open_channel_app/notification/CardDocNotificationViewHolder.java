@@ -26,7 +26,7 @@ public class CardDocNotificationViewHolder extends RecyclerView.ViewHolder  impl
     public CardDocNotificationViewHolder(@NonNull View itemView, Fragment fragment) {
         super(itemView);
 
-        downloadButton = (ImageButton) itemView.findViewById(R.id.downloadDocButton);
+        downloadButton = itemView.findViewById(R.id.downloadDocButton);
 
         notificationTitle = itemView.findViewById(R.id.title);
         notificationChannel = itemView.findViewById(R.id.channel);

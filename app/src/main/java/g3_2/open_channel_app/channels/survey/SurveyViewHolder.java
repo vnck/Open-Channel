@@ -15,6 +15,7 @@ public class SurveyViewHolder {
     public MaterialButton q1_ans2;
     public TextView q2_question;
     public TextView q2_answer;
+    public MaterialButton submit_survey;
 
 
     public SurveyViewHolder(@NonNull View view) {
@@ -24,5 +25,6 @@ public class SurveyViewHolder {
         q1_ans2 = view.findViewById(R.id.q1_ans2);
         q2_question = view.findViewById(R.id.q2_question);
         q2_answer = view.findViewById(R.id.q2_answer);
+        submit_survey = view.findViewById(R.id.submit_survey);
     }
 }

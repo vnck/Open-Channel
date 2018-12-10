@@ -14,7 +14,6 @@ import android.widget.ImageButton;
 import java.util.List;
 
 import g3_2.open_channel_app.R;
-import g3_2.open_channel_app.channels.ChannelActivity;
 import g3_2.open_channel_app.network.DocNotificationEntry;
 
 public class CardDocNotificationAdaptor extends RecyclerView.Adapter<CardDocNotificationViewHolder>  {
@@ -33,12 +32,12 @@ public class CardDocNotificationAdaptor extends RecyclerView.Adapter<CardDocNoti
     @Override
     public CardDocNotificationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_doc_notification, parent, false);
-        layoutView.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                Intent intent = new Intent(mContext, ChannelActivity.class);
-                mContext.startActivity(intent);
-            }
-        });
+//        layoutView.setOnClickListener(new View.OnClickListener() {
+//            @Override public void onClick(View v) {
+//                Intent intent = new Intent(mContext, ChannelActivity.class);
+//                mContext.startActivity(intent);
+//            }
+//        });
         return new CardDocNotificationViewHolder(layoutView, fragment);
     }
 
@@ -60,7 +59,7 @@ public class CardDocNotificationAdaptor extends RecyclerView.Adapter<CardDocNoti
             @Override
             public void onClick(View v) {
                 // TODO: get url and replace
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 v.getContext().startActivity(browserIntent);
 
             }

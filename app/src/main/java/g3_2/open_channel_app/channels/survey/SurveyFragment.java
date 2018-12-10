@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -91,6 +92,7 @@ public class SurveyFragment extends Fragment {
                             holder.q1_ans2.setText(mcq.answers.get(0));
                             holder.q2_question.setText(openended.question);
                             holder.q2_answer.setText(openended.answer);
+                            holder.submit_survey.setText("submit survey");
 
                             // get responses docref
                             Query responses = firestoreDB.collection("responses").whereEqualTo("id", survey.id).limit(10);
@@ -119,6 +121,24 @@ public class SurveyFragment extends Fragment {
     }
 
     public void buttonListener () {
+
+        holder.q1_ans1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                holder.q1_ans1.setPressed(true);
+                holder.q1_ans2.setPressed(false);
+                return true;
+            }
+        });
+
+        holder.q1_ans2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                holder.q1_ans1.setPressed(false);
+                holder.q1_ans2.setPressed(true);
+                return true;
+            }
+        });
 
         holder.q1_ans1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,6 +177,13 @@ public class SurveyFragment extends Fragment {
                                 Log.w(TAG, "Error updating response with "+holder.q1_ans2.getText().toString(), e);
                             }
                         });
+            }
+        });
+
+        holder.submit_survey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().onBackPressed();
             }
         });
     }

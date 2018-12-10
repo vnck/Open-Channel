@@ -101,7 +101,7 @@ public class HomeFragment extends Fragment {
                                         document.getData().get("channel").toString(),
                                         document.getData().get("date").toString(),
                                         document.getData().get("due").toString(),
-                                        document.getId()
+                                        document.getData().get("channelid").toString()
                                 );
                                 notificationList.add(notification);
                             }

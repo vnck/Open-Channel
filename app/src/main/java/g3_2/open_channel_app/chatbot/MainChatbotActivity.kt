@@ -3,20 +3,16 @@ package g3_2.open_channel_app.chatbot
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.MenuItem
 import android.view.View
 import com.github.bassaer.chatmessageview.model.ChatUser
 import com.github.bassaer.chatmessageview.model.Message
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.android.extension.responseJson
 import com.github.kittinunf.fuel.core.FuelManager
-import java.util.*
-import android.util.Log
-import android.content.ContentValues.TAG
-import android.content.Intent
-import android.provider.AlarmClock.EXTRA_MESSAGE
-import android.widget.Button
-import kotlinx.android.synthetic.main.chatbot_main.*
 import g3_2.open_channel_app.R
+import kotlinx.android.synthetic.main.chatbot_main.*
+import java.util.*
 
 
 class MainChatbotActivity : AppCompatActivity() {
@@ -120,5 +116,16 @@ class MainChatbotActivity : AppCompatActivity() {
                         }
 
             })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }
