@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.oc_menu);
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomnav);
+        bottomNavigationView = findViewById(R.id.bottomnav);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 

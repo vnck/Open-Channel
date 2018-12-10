@@ -19,7 +19,8 @@
             style="@style/Widget.OpenChannel.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="@string/oc_chatbot_name" />
+            app:title="@string/oc_chatbot_name"
+            app:navigationIcon="@drawable/oc_back" />
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout

@@ -3,18 +3,18 @@ package g3_2.open_channel_app.channels;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.button.MaterialButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import g3_2.open_channel_app.R;
 
 
 public class SubFragmentDocuments extends Fragment{
 
-    MaterialButton buttonDownloadDoc;
+    ImageButton buttonDownloadDoc;
     //String pdfLink = "http://unec.edu.az/application/uploads/2014/12/pdf-sample.pdf";
     public String pdfurl;
 
@@ -22,6 +22,7 @@ public class SubFragmentDocuments extends Fragment{
     public static SubFragmentDocuments newInstance(String pdfurl){
         SubFragmentDocuments frag = new SubFragmentDocuments();
         frag.pdfurl = pdfurl;
+
         return frag;
     }
 
@@ -48,6 +49,8 @@ public class SubFragmentDocuments extends Fragment{
 
         return rootView;
     }
+
+
 
 
 }

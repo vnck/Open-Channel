@@ -14,6 +14,6 @@ public class QuestionsAdapterTest {
     @Test
     public void loadQuestions() {
         QuestionsAdapter test = new QuestionsAdapter(mContext,fragment);
-        assertEquals(int reach == 1; reach);
+        assertEquals(int reach == 1; reach)
     }
 }
