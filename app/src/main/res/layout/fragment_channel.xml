@@ -7,23 +7,49 @@
     android:orientation="vertical"
     tools:context=".channels.ChannelFragment">
 
-    <com.android.volley.toolbox.NetworkImageView
-        android:id="@+id/channelImage"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/fragment_channel_image_height"
-        android:background="@color/primaryWhite"
-        android:scaleType="centerCrop" />
+        android:layout_height="@dimen/fragment_channel_image_height">
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/channelImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_channel_image_height"
+            android:background="@color/primaryWhite"
+            android:scaleType="centerCrop" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_channel_image_height"
+            android:background="@drawable/gradient_bg"></FrameLayout>
+
+        <TextView
+            android:id="@+id/channelTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/primaryWhite"
+            android:text="Channel Title"
+            android:padding="16dp"
+            android:textSize="30dp"
+            />
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/primaryWhite"
+        android:padding="8dp"
         android:text="@string/short_description_about_project" />
+
     <android.support.design.widget.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        app:tabSelectedTextColor="@color/primaryWhite"
+        app:tabTextColor="@color/colorPrimaryDark">
 
         <android.support.design.widget.TabItem
             android:id="@+id/Description"

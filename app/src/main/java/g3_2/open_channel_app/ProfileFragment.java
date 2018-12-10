@@ -22,8 +22,6 @@ import g3_2.open_channel_app.profile.ProfileViewHolder;
 
 public class ProfileFragment extends Fragment {
 
-    private ProfileViewModel mViewModel;
-
     private FirebaseFirestore firestoreDB;
     private Query profileQuery;
 

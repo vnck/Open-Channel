@@ -43,7 +43,7 @@
         <TextView
             android:id="@+id/organisation"
             style="@style/TextAppearance.AppCompat.Subhead"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/channelImage"
             android:ellipsize="end"
@@ -57,19 +57,20 @@
         <TextView
             android:id="@+id/description"
             style="@style/TextAppearance.AppCompat.Subhead"
-            android:layout_width="280dp"
+            android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/organisation"
             android:ellipsize="end"
             android:lines="1"
             android:padding="8dp"
+            android:layout_marginBottom="8dp"
             android:scrollHorizontally="true"
             android:singleLine="true"
             android:text="@string/channel_description_placeholder" />
 
         <android.support.design.button.MaterialButton
             android:id="@+id/subscribe_button"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/description"
             android:layout_alignParentRight="true"

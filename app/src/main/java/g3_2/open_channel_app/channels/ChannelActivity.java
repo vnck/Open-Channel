@@ -2,11 +2,6 @@ package g3_2.open_channel_app.channels;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +11,6 @@ import android.view.MenuItem;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import g3_2.open_channel_app.LoginActivity;
-import g3_2.open_channel_app.ProfileFragment;
 import g3_2.open_channel_app.R;
 
 import static android.support.constraint.Constraints.TAG;
@@ -46,42 +39,8 @@ public class ChannelActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
+
         actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.oc_menu);
-
-
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                        // close drawer when item is tapped
-                        mDrawerLayout.closeDrawers();
-
-                        Fragment selectedFragment = null;
-                        switch (menuItem.getItemId()) {
-                            case R.id.drawer_account:
-                                selectedFragment = ProfileFragment.newInstance();
-                                break;
-                            case R.id.drawer_logoff:
-                                startActivity(new Intent(ChannelActivity.this, LoginActivity.class));
-                                break;
-                        }
-                        if (selectedFragment != null) {
-                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                            transaction.replace(R.id.fragmentContainer, selectedFragment);
-                            transaction.addToBackStack(null);
-                            transaction.commit();
-                        }
-
-                        // Add code here to update the UI based on the item selected
-                        // For example, swap UI fragments here
-
-                        return true;
-                    }
-                });
 //
 //        FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -91,39 +50,7 @@ public class ChannelActivity extends AppCompatActivity {
 //                        .setAction("Chat", null).show();
 //            }
 //        });
-//
-//        BottomNavigationView bottomNavigationView = (BottomNavigationView)
-//                findViewById(R.id.bottomnav);
-//
-//        bottomNavigationView.setOnNavigationItemSelectedListener
-//                (new BottomNavigationView.OnNavigationItemSelectedListener() {
-//                    @Override
-//                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                        Fragment selectedFragment = null;
-//                        Query query = null;
-//                        switch (item.getItemId()) {
-//                            case R.id.home:
-//                                selectedFragment = HomeFragment.newInstance();
-//                                break;
-//                            case R.id.myChannels:
-//                                query = firestoreDB.collection("channel").whereArrayContains("subscribers", "user0").limit(10);
-//                                selectedFragment = MyChannelFragment.newInstance(query);
-//                                break;
-//                            case R.id.allChannels:
-//                                query = firestoreDB.collection("channel").limit(10);
-//                                selectedFragment = AllChannelFragment.newInstance(query);
-//                                break;
-//                        }
-//                        if (selectedFragment != null) {
-//                            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                            transaction.replace(R.id.fragmentContainer, selectedFragment);
-//                            transaction.addToBackStack(null);
-//                            transaction.commit();
-//                        }
-//                        return true;
-//
-//                    }
-//                });
+
     }
 
 
@@ -131,10 +58,16 @@ public class ChannelActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
+                onBackPressed();
                 return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+    }
+
+    public void loadIntent(Intent intent){
+        startActivity(intent);
     }
 
 

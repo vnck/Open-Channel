@@ -11,7 +11,7 @@ import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
@@ -19,7 +19,6 @@ import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 
 import g3_2.open_channel_app.R;
-import g3_2.open_channel_app.network.ImageRequester;
 
 import static android.support.constraint.Constraints.TAG;
 
@@ -28,6 +27,8 @@ public class ChannelFragment extends Fragment {
     public String id;
     public String url;
     public String pdfurl;
+    public String title;
+    public String description;
     public Bundle details;
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
@@ -38,6 +39,8 @@ public class ChannelFragment extends Fragment {
         this.id = "no find";
         this.url = "invalid url";
         this.pdfurl = "invalid pdfurl";
+        this.title = "invalid title";
+        this.description = "No description";
         Bundle x = new Bundle();
         this.details = x;
     }
@@ -48,6 +51,8 @@ public class ChannelFragment extends Fragment {
         this.id = bundle.getString("id");
         this.url = bundle.getString("url");
         this.pdfurl = bundle.getString("pdfurl");
+        this.title = bundle.getString("title");
+        this.description = bundle.getString("description");
         this.details = bundle;
         Log.d(TAG, this.id + "In Channel Fragment");
     }
@@ -78,6 +83,12 @@ public class ChannelFragment extends Fragment {
 
         channelImage = view.findViewById(R.id.channelImage);
         channelImage.setImageUrl(this.url,mImageLoader);
+
+        TextView title = view.findViewById(R.id.channelTitle);
+        title.setText(this.title);
+
+        TextView description = view.findViewById(R.id.description);
+        description.setText(this.description);
 
 
 //        ImageRequester.getInstance();
