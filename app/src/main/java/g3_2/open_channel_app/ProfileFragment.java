@@ -1,5 +1,7 @@
 package g3_2.open_channel_app;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +10,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.Button;
+import android.support.design.button.MaterialButton;
+import de.hdodenhof.circleimageview.CircleImageView;
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +34,12 @@ public class ProfileFragment extends Fragment {
     private FirebaseFirestore firestoreDB;
     private Query profileQuery;
 
+    //TODO changing profile pictures
+    private MaterialButton editProfilePic;
+    private CircleImageView profilePic;
+    private Uri filePath;
+    private final int PICK_IMAGE_REQUEST = 71;
+
     public static ProfileFragment newInstance() {
         return new ProfileFragment();
     }
@@ -36,6 +49,19 @@ public class ProfileFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        //TODO changing profile pictures
+        profilePic = view.findViewById(R.id.user_profile);
+        editProfilePic = view.findViewById(R.id.editProfilePic);
+        editProfilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (view.getContext(), ProfilePicEdit.class);
+                view.getContext().startActivity(intent);
+
+            }
+        });
+
 
         firestoreDB = FirebaseFirestore.getInstance();
 

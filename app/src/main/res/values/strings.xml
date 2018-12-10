@@ -38,4 +38,7 @@
     <string name="oc_chatbot_name">YOUR OPEN CHANNEL GUIDE</string>
     <string name="singpass">Log In With SingPass</string>
 
+    <string name="editProfilePic">EDIT</string>
+    <string name="edit_profile_pic_label">Edit Profile Picture</string>
+
 </resources>
